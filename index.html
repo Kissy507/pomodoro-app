@@ -153,6 +153,13 @@
             font-size: 0.85rem;
             font-weight: 500;
             margin-left: 10px;
+            opacity: 0;
+            transition: opacity 1s linear;
+        }
+
+        .error-hint.show {
+            opacity: 1;
+            transition: none;
         }
 
         input[type="time"],
@@ -436,13 +443,12 @@
                 gap: 10px;
             }
 
-            /* テーブルのカード型変換表示（横スクロールなし） */
             table, thead, tbody, th, td, tr {
                 display: block;
             }
 
             thead {
-                display: none; /* 見出し行を非表示 */
+                display: none;
             }
 
             tr {
@@ -610,6 +616,7 @@
 <script>
     let sessionDurations = [];
     let toastTimeout = null;
+    let tableMsgTimeout = null;
     let timeOffset = 0;
 
     // ごはん休憩入力欄の開閉表示
@@ -646,6 +653,22 @@
 
         toastTimeout = setTimeout(() => {
             toastEl.classList.remove('show');
+        }, 2000);
+    }
+
+    // 表の上部（「指定された時間内では～」の位置）にメッセージを表示して2秒後フェードアウト
+    function showTableMessage(text) {
+        const tableErrorEl = document.getElementById('table-error');
+        
+        if (tableMsgTimeout) {
+            clearTimeout(tableMsgTimeout);
+        }
+
+        tableErrorEl.textContent = text;
+        tableErrorEl.classList.add('show');
+
+        tableMsgTimeout = setTimeout(() => {
+            tableErrorEl.classList.remove('show');
         }, 2000);
     }
 
@@ -727,6 +750,7 @@
         if (diffMinutes <= 0) {
             hintEl.textContent = '';
             errorEl.textContent = '';
+            errorEl.classList.remove('show');
             btn.disabled = false;
             return;
         }
@@ -747,9 +771,11 @@
 
         if (!isNaN(cyclesVal) && (cyclesVal > maxCycles || remainingMinutes < 0 || invalidMealCycle)) {
             errorEl.textContent = '指定された時間内では、そのルーティーン数は指定できません';
+            errorEl.classList.add('show');
             btn.disabled = true;
         } else {
             errorEl.textContent = '';
+            errorEl.classList.remove('show');
             btn.disabled = false;
         }
     }
@@ -760,7 +786,9 @@
         const includeLastBreak = document.getElementById('includeLastBreak').checked;
         if (isNaN(cycles) || cycles < 1) return;
 
-        document.getElementById('table-error').textContent = '';
+        const tableErrorEl = document.getElementById('table-error');
+        tableErrorEl.textContent = '';
+        tableErrorEl.classList.remove('show');
 
         const mealConfigs = getMealConfigs();
         sessionDurations = [];
@@ -787,7 +815,6 @@
     // テーブル内時間変更時の再計算
     function onDurationChange(index, inputEl) {
         const val = parseInt(inputEl.value, 10);
-        const errorEl = document.getElementById('table-error');
 
         if (isNaN(val) || val <= 0) {
             inputEl.value = sessionDurations[index].duration;
@@ -801,12 +828,12 @@
         const availableMinutes = getAvailableMinutes();
 
         if (availableMinutes > 0 && totalDuration > availableMinutes) {
-            errorEl.textContent = '指定された時間内では、そのルーティーン数は指定できません';
             inputEl.value = sessionDurations[index].duration;
+            showTableMessage('指定された時間内では、そのルーティーン数は指定できません');
         } else {
-            errorEl.textContent = '';
             sessionDurations[index].duration = val;
             renderTimeline();
+            showTableMessage('表を更新しました！');
             showToast('表を更新しました！');
         }
     }
