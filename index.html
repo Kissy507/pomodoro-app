@@ -871,8 +871,8 @@
         const minutes = String(now.getMinutes()).padStart(2, '0');
         const seconds = String(now.getSeconds()).padStart(2, '0');
 
-        const dateStr = `year/{month}/date({day})`;
-        const timeStr = `hours:{minutes}:${seconds}`;
+        const dateStr = `${year}/${month}/${date}(${day})`;
+        const timeStr = `${hours}:${minutes}:${seconds}`;
 
         document.getElementById('clock-date').textContent = dateStr;
         document.getElementById('clock-time').textContent = timeStr;
@@ -885,7 +885,7 @@
     function formatTime(date) {
         const hours = String(date.getHours()).padStart(2, '0');
         const minutes = String(date.getMinutes()).padStart(2, '0');
-        return `hours:{minutes}`;
+        return `${hours}:${minutes}`;
     }
 
     // 利用可能な総分数を計算
@@ -1109,7 +1109,7 @@
                     <input type="checkbox" class="row-check" ${isChecked ? 'checked' : ''} onchange="toggleComplete(this)">
                 </td>
                 <td>第${item.cycle}セット</td>
-                <td><span class="badge badgeClass">{item.type}</span></td>
+                <td><span class="badge ${badgeClass}">${item.type}</span></td>
                 <td>${item.start} ～ ${item.end}</td>
                 <td>
                     <span><input type="number" class="table-input" value="${item.duration}" min="1" max="180" 
@@ -1152,7 +1152,7 @@
 
         const mins = String(Math.floor(customSecondsLeft / 60)).padStart(2, '0');
         const secs = String(customSecondsLeft % 60).padStart(2, '0');
-        document.getElementById('custom-timer-clock').textContent = `mins:{secs}`;
+        document.getElementById('custom-timer-clock').textContent = `${mins}:${secs}`;
     }
 
     function startCustomTimer(mode) {
@@ -1236,5 +1236,4 @@
 
 </body>
 </html>
-
 
