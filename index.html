@@ -615,7 +615,7 @@
         .btn-reset { background-color: #64748b; color: white; }
         .btn-fullscreen { background-color: rgba(255, 255, 255, 0.2); color: white; border: 1px solid rgba(255, 255, 255, 0.4); }
 
-        /* 全画面表示用クラス（サイズ・バランス調整済み） */
+        /* 全画面表示用クラス */
         .fullscreen-mode {
             position: fixed !important;
             top: 0 !important;
@@ -632,27 +632,18 @@
             box-sizing: border-box !important;
         }
 
-        /* 勉強タイマー：全画面時の時間数字（2まわりほど小さく調整） */
+        /* 勉強タイマー：全画面時の時間数字（2まわり小さめ）のみ変更 */
         .fullscreen-mode .digital-timer-time {
             font-size: min(15vw, 26vh);
         }
 
-        /* 勉強タイマー：全画面時のバッジ文字（数字に合わせてバランスよく拡大） */
-        .fullscreen-mode .timer-status-badge {
-            font-size: min(2.5vw, 4vh);
-            padding: 8px 24px;
-            border-radius: 30px;
-            margin-bottom: 20px;
-        }
-
-        /* 時計タブ：全画面時の時刻数字（気持ち大きく調整） */
+        /* それ以外の元々の設定 */
         .fullscreen-mode .clock-tab-time {
-            font-size: min(18vw, 32vh);
+            font-size: min(15vw, 28vh);
         }
 
-        /* 時計タブ：全画面時の年月日（気持ち小さく調整） */
         .fullscreen-mode .clock-tab-date {
-            font-size: min(3.8vw, 6vh);
+            font-size: min(5vw, 8vh);
         }
 
         .clock-tab-display {
