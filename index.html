@@ -756,7 +756,7 @@
 
             <div class="slider-group">
                 <div class="slider-header">
-                    <label for="custom-lunch-range">お昼時間（1〜120分）</label>
+                    <label for="custom-lunch-range">ご飯時間（1〜120分）</label>
                     <span class="slider-val" id="custom-lunch-val">45分</span>
                 </div>
                 <input type="range" id="custom-lunch-range" min="1" max="120" value="45" oninput="onCustomSliderChange()">
@@ -774,7 +774,7 @@
                 <div class="timer-btn-group">
                     <button type="button" class="btn-timer-ctrl btn-start" onclick="startCustomTimer('work')">勉強スタート</button>
                     <button type="button" class="btn-timer-ctrl btn-start" style="background-color: #64748b;" onclick="startCustomTimer('break')">休憩スタート</button>
-                    <button type="button" class="btn-timer-ctrl btn-start" style="background-color: #d97706;" onclick="startCustomTimer('lunch')">お昼スタート</button>
+                    <button type="button" class="btn-timer-ctrl btn-start" style="background-color: #d97706;" onclick="startCustomTimer('lunch')">ご飯スタート</button>
                     <button type="button" class="btn-timer-ctrl btn-pause" onclick="pauseCustomTimer()">一時停止</button>
                     <button type="button" class="btn-timer-ctrl btn-reset" onclick="resetCustomTimer()">リセット</button>
                     <button type="button" class="btn-timer-ctrl btn-fullscreen" id="timer-fs-btn" onclick="toggleFullscreen('timer-display-box', 'timer-fs-btn')">全画面表示</button>
@@ -799,7 +799,6 @@
 
 <script>
     let sessionDurations = [];
-    let checkedStateMap = {}; // チェック状態を保持するマップ（インデックス・区分保持用）
     let toastTimeout = null;
     let tableMsgTimeout = null;
     let timeOffset = 0;
@@ -977,8 +976,6 @@
         tableErrorEl.textContent = '';
         tableErrorEl.classList.remove('show');
 
-        checkedStateMap = {}; // チェック状態マップのリセット
-
         const mealConfigs = getMealConfigs();
         sessionDurations = [];
 
@@ -1028,24 +1025,23 @@
     }
 
     // チェックボックス切り替え
-    function toggleComplete(checkbox, index) {
+    function toggleComplete(checkbox) {
         const row = checkbox.closest('tr');
         if (checkbox.checked) {
             row.classList.add('completed');
-            checkedStateMap[index] = true;
         } else {
             row.classList.remove('completed');
-            checkedStateMap[index] = false;
         }
     }
 
-    // タイムライン描画（問題点1の修正：終了時刻基準時の正しい順序計算）
+    // タイムライン描画
     function renderTimeline() {
         const baseType = document.querySelector('input[name="baseType"]:checked').value;
         const startTimeVal = document.getElementById('startTime').value;
         const endTimeVal = document.getElementById('endTime').value;
         const tbody = document.getElementById('schedule-body');
 
+        const checkedStates = Array.from(tbody.querySelectorAll('.row-check')).map(cb => cb.checked);
         tbody.innerHTML = '';
 
         if (!startTimeVal || !endTimeVal) return;
@@ -1070,26 +1066,23 @@
                 });
             });
         } else {
-            // 終了時刻基準（総所要時間を求めて逆算開始時刻を導出）
-            const totalDuration = sessionDurations.reduce((sum, item) => sum + item.duration, 0);
-            let [endH, endM] = endTimeVal.split(':').map(Number);
-            
+            let [hours, minutes] = endTimeVal.split(':').map(Number);
             let currentTime = new Date();
-            currentTime.setHours(endH, endM, 0, 0);
-            currentTime.setMinutes(currentTime.getMinutes() - totalDuration);
+            currentTime.setHours(hours, minutes, 0, 0);
 
-            sessionDurations.forEach((item, idx) => {
-                let start = new Date(currentTime);
-                currentTime.setMinutes(currentTime.getMinutes() + item.duration);
+            for (let i = sessionDurations.length - 1; i >= 0; i--) {
+                const item = sessionDurations[i];
                 let end = new Date(currentTime);
+                currentTime.setMinutes(currentTime.getMinutes() - item.duration);
+                let start = new Date(currentTime);
 
-                timeline.push({
+                timeline.unshift({
                     ...item,
                     start: formatTime(start),
                     end: formatTime(end),
-                    durationIndex: idx
+                    durationIndex: i
                 });
-            });
+            }
         }
 
         timeline.forEach((item, index) => {
@@ -1108,12 +1101,12 @@
 
             tr.className = rowClass;
 
-            const isChecked = !!checkedStateMap[item.durationIndex];
+            const isChecked = checkedStates[index] || false;
             if (isChecked) tr.classList.add('completed');
 
             tr.innerHTML = `
                 <td class="checkbox-col">
-                    <input type="checkbox" class="row-check" ${isChecked ? 'checked' : ''} onchange="toggleComplete(this, ${item.durationIndex})">
+                    <input type="checkbox" class="row-check" ${isChecked ? 'checked' : ''} onchange="toggleComplete(this)">
                 </td>
                 <td>第${item.cycle}セット</td>
                 <td><span class="badge badgeClass">{item.type}</span></td>
@@ -1132,7 +1125,7 @@
     // ----------------------------------
     let customTimerInterval = null;
     let customSecondsLeft = 25 * 60;
-    let currentCustomMode = 'work';
+    let currentCustomMode = 'work'; // 'work', 'break', 'lunch'
 
     function onCustomSliderChange() {
         const workVal = document.getElementById('custom-work-range').value;
@@ -1174,7 +1167,7 @@
                 document.getElementById('timer-mode-badge').textContent = '休憩タイマー';
             } else if (mode === 'lunch') {
                 m = document.getElementById('custom-lunch-range').value;
-                document.getElementById('timer-mode-badge').textContent = 'お昼タイマー';
+                document.getElementById('timer-mode-badge').textContent = 'ご飯タイマー';
             }
             customSecondsLeft = m * 60;
         }
@@ -1216,7 +1209,7 @@
         onCustomSliderChange();
     }
 
-    // 全画面表示切替（問題点3の修正：Escキー等での離脱時のボタン文言同期）
+    // 全画面表示切替（PC・スマホ両対応）
     function toggleFullscreen(elementId, btnId) {
         const targetEl = document.getElementById(elementId);
         const btn = document.getElementById(btnId);
