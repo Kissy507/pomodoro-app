@@ -890,8 +890,9 @@
                 <input type="range" id="custom-lunch-range" min="1" max="120" value="45" oninput="onCustomSliderChange()">
             </div>
 
-            <div class="checkbox-group" style="margin-bottom: 20px;">
-                <label><input type="checkbox" id="custom-auto-loop" checked> 勉強時間と休憩時間を自動で行き来させる</label>
+            <div class="checkbox-group" style="margin-bottom: 20px; flex-direction: column; align-items: flex-start; gap: 10px;">
+                <label><input type="checkbox" id="custom-auto-work-to-break" checked> 勉強が終わったら、自動で休憩を始める</label>
+                <label><input type="checkbox" id="custom-auto-break-to-work" checked> 休憩が終わったら、自動で勉強を始める</label>
             </div>
 
             <!-- 終了時の通知・サウンド設定 -->
@@ -1387,8 +1388,9 @@
         showFinishNotification(finishedMode);
         showTimerNote(`${MODE_LABELS[finishedMode]}タイマー終了`);
 
-        const isAutoLoop = document.getElementById('custom-auto-loop').checked;
-        if (isAutoLoop && finishedMode !== 'lunch') {
+        const autoWorkToBreak = document.getElementById('custom-auto-work-to-break').checked;
+        const autoBreakToWork = document.getElementById('custom-auto-break-to-work').checked;
+        if ((finishedMode === 'work' && autoWorkToBreak) || (finishedMode === 'break' && autoBreakToWork)) {
             const nextMode = finishedMode === 'work' ? 'break' : 'work';
             customLoopTimeout = setTimeout(() => {
                 customLoopTimeout = null;
