@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <link rel="apple-touch-icon" href="./apple-touch-icon.jpeg">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ポモドーロタイマースケジュール作成ツール</title>
+    <link rel="apple-touch-icon" href="./apple-touch-icon.jpeg">
     <style>
         :root {
             --bg-color: #ffffff;
@@ -55,7 +55,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
             padding-bottom: 20px;
             border-bottom: 2px solid var(--card-border);
             flex-wrap: wrap;
@@ -95,6 +95,46 @@
             letter-spacing: 0.05em;
         }
 
+        /* 洗練されたメインナビゲーションタブ */
+        .main-tabs {
+            display: flex;
+            background-color: var(--card-bg);
+            padding: 6px;
+            border-radius: 12px;
+            border: 1px solid var(--card-border);
+            margin-bottom: 24px;
+            gap: 6px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 10px 16px;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .tab-btn.active {
+            background-color: #ffffff;
+            color: var(--primary-color);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* ポモドーロテーブル用スタイル */
         .form-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -322,17 +362,9 @@
             border-top: 1px solid var(--card-border);
         }
 
-        tr.work {
-            background-color: var(--work-bg);
-        }
-
-        tr.break {
-            background-color: var(--break-bg);
-        }
-
-        tr.meal {
-            background-color: var(--meal-bg);
-        }
+        tr.work { background-color: var(--work-bg); }
+        tr.break { background-color: var(--break-bg); }
+        tr.meal { background-color: var(--meal-bg); }
 
         tr.completed td {
             text-decoration: line-through;
@@ -352,20 +384,9 @@
             display: inline-block;
         }
 
-        .badge-work {
-            background-color: var(--work-badge);
-            color: var(--work-text);
-        }
-
-        .badge-break {
-            background-color: var(--break-badge);
-            color: var(--break-text);
-        }
-
-        .badge-meal {
-            background-color: var(--meal-badge);
-            color: var(--meal-text);
-        }
+        .badge-work { background-color: var(--work-badge); color: var(--work-text); }
+        .badge-break { background-color: var(--break-badge); color: var(--break-text); }
+        .badge-meal { background-color: var(--meal-badge); color: var(--meal-text); }
 
         .table-input {
             width: 65px;
@@ -377,9 +398,7 @@
             font-weight: 600;
         }
 
-        .checkbox-col {
-            width: 50px;
-        }
+        .checkbox-col { width: 50px; }
 
         input[type="checkbox"] {
             width: 20px;
@@ -388,69 +407,172 @@
             accent-color: var(--primary-color);
         }
 
+        /* ----------------------------------
+         * タイマータブ & 時計タブ用スタイル
+         * ---------------------------------- */
+        .timer-card, .clock-tab-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .slider-group {
+            margin-bottom: 20px;
+        }
+
+        .slider-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .slider-header label {
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        .slider-val {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--primary-color);
+        }
+
+        input[type="range"] {
+            width: 100%;
+            accent-color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        .digital-display-box {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            color: #ffffff;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .timer-status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .digital-timer-time {
+            font-size: 4rem;
+            font-weight: 900;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            letter-spacing: 0.05em;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .timer-btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-timer-ctrl {
+            padding: 10px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: transform 0.1s, opacity 0.2s;
+        }
+
+        .btn-timer-ctrl:active {
+            transform: scale(0.96);
+        }
+
+        .btn-start { background-color: var(--primary-color); color: white; }
+        .btn-pause { background-color: #f59e0b; color: white; }
+        .btn-reset { background-color: #64748b; color: white; }
+        .btn-fullscreen { background-color: rgba(255, 255, 255, 0.2); color: white; border: 1px solid rgba(255, 255, 255, 0.4); }
+
+        /* 全画面表示用クラス */
+        .fullscreen-mode {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            z-index: 9999 !important;
+            margin: 0 !important;
+            border-radius: 0 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: center !important;
+            box-sizing: border-box !important;
+        }
+
+        .fullscreen-mode .digital-timer-time {
+            font-size: 15vw;
+        }
+
+        .clock-tab-display {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-radius: 16px;
+            padding: 50px 20px;
+            text-align: center;
+            color: #ffffff;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+            margin-top: 10px;
+        }
+
+        .clock-tab-date {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #94a3b8;
+            margin-bottom: 10px;
+        }
+
+        .clock-tab-time {
+            font-size: 5rem;
+            font-weight: 900;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            letter-spacing: 0.05em;
+            color: #38bdf8;
+            margin-bottom: 30px;
+        }
+
         /* スマホ向け独自レスポンシブデザイン (iPhone / Android) */
         @media screen and (max-width: 640px) {
-            body {
-                padding: 12px 8px;
-            }
+            body { padding: 12px 8px; }
+            .container { padding: 16px; border-radius: 12px; }
+            .header { flex-direction: column; align-items: flex-start; gap: 12px; margin-bottom: 20px; padding-bottom: 16px; }
+            h1 { font-size: 1.4rem; }
 
-            .container {
-                padding: 16px;
-                border-radius: 12px;
-            }
+            .clock-container { width: 100%; justify-content: space-between; box-sizing: border-box; padding: 8px 14px; }
+            .clock-date { font-size: 0.85rem; }
+            .clock-time { font-size: 1.15rem; }
 
-            .header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 12px;
-                margin-bottom: 20px;
-                padding-bottom: 16px;
-            }
+            .main-tabs { gap: 4px; padding: 4px; }
+            .tab-btn { padding: 8px 6px; font-size: 0.85rem; }
 
-            h1 {
-                font-size: 1.4rem;
-            }
+            .form-grid { padding: 16px; gap: 16px; }
+            .radio-group { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .meal-item-row { flex-direction: column; align-items: flex-start; gap: 10px; }
 
-            .clock-container {
-                width: 100%;
-                justify-content: space-between;
-                box-sizing: border-box;
-                padding: 8px 14px;
-            }
+            .digital-timer-time { font-size: 2.8rem; }
+            .clock-tab-time { font-size: 3rem; }
+            .clock-tab-date { font-size: 1.1rem; }
 
-            .clock-date {
-                font-size: 0.85rem;
-            }
-
-            .clock-time {
-                font-size: 1.15rem;
-            }
-
-            .form-grid {
-                padding: 16px;
-                gap: 16px;
-            }
-
-            .radio-group {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
-            }
-
-            .meal-item-row {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
-            }
-
-            table, thead, tbody, th, td, tr {
-                display: block;
-            }
-
-            thead {
-                display: none;
-            }
-
+            table, thead, tbody, th, td, tr { display: block; }
+            thead { display: none; }
             tr {
                 margin-bottom: 12px;
                 border: 1px solid var(--card-border);
@@ -480,20 +602,13 @@
                 font-size: 0.9rem;
             }
 
-            td.checkbox-col::after {
-                content: "完了チェック";
-                color: var(--text-muted);
-            }
-
+            td.checkbox-col::after { content: "完了チェック"; color: var(--text-muted); }
             td:nth-child(2)::before { content: "セット:"; font-weight: 700; color: var(--text-muted); }
             td:nth-child(3)::before { content: "区分:"; font-weight: 700; color: var(--text-muted); }
             td:nth-child(4)::before { content: "時間帯:"; font-weight: 700; color: var(--text-muted); }
             td:nth-child(5)::before { content: "時間配分:"; font-weight: 700; color: var(--text-muted); }
 
-            .table-input {
-                width: 70px;
-                padding: 6px;
-            }
+            .table-input { width: 70px; padding: 6px; }
         }
     </style>
 </head>
@@ -507,108 +622,177 @@
             <span class="clock-time" id="clock-time">--:--:--</span>
         </div>
     </div>
+
+    <!-- メイン切り替えタブ -->
+    <div class="main-tabs">
+        <button type="button" class="tab-btn active" onclick="switchMainTab('table')">ポモドーロテーブル</button>
+        <button type="button" class="tab-btn" onclick="switchMainTab('timer')">タイマー</button>
+        <button type="button" class="tab-btn" onclick="switchMainTab('clock')">時計</button>
+    </div>
     
-    <form id="pomodoro-form" onsubmit="return false;">
-        <div class="form-grid">
-            <div class="form-group full-width">
-                <div class="label-container">
-                    <label>基準時刻の設定</label>
-                    <span class="toast-message" id="toast-msg"></span>
-                </div>
-                <div class="radio-group">
-                    <label><input type="radio" name="baseType" value="start" checked onchange="validateInputs()"> 開始時刻を基準にする</label>
-                    <label><input type="radio" name="baseType" value="end" onchange="validateInputs()"> 終了時刻を基準にする</label>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="startTime">開始時刻</label>
-                <input type="time" id="startTime" value="09:00" onchange="validateInputs()" required>
-            </div>
-
-            <div class="form-group">
-                <label for="endTime">終了時刻</label>
-                <input type="time" id="endTime" value="12:00" onchange="validateInputs()" required>
-            </div>
-
-            <div class="form-group full-width">
-                <label for="cycles">
-                    ローテーション数（セット数）
-                    <span class="label-hint" id="max-cycles-hint"></span>
-                </label>
-                <div class="cycles-input-wrapper">
-                    <input type="number" id="cycles" min="1" max="48" value="4" oninput="validateInputs()" required>
-                    <span class="error-hint" id="cycles-error"></span>
-                </div>
-            </div>
-
-            <!-- ごはん休憩設定 -->
-            <div class="form-group full-width">
-                <div class="meal-section-title">ごはん休憩の設定</div>
-                <div class="meal-options-container">
-                    <!-- 朝食 -->
-                    <div class="meal-item-row">
-                        <label class="meal-label-check">
-                            <input type="checkbox" id="meal-bf-check" onchange="toggleMealInputs('bf'); validateInputs();"> 朝食
-                        </label>
-                        <div class="meal-inputs" id="meal-bf-inputs" style="display: none;">
-                            <label>第 <input type="number" id="meal-bf-cycle" min="1" max="48" value="1" oninput="validateInputs()"> セット目</label>
-                            <label>時間 <input type="number" id="meal-bf-time" min="1" max="180" value="30" oninput="validateInputs()"> 分</label>
-                        </div>
+    <!-- 1. ポモドーロテーブル タブ -->
+    <div id="tab-table" class="tab-content active">
+        <form id="pomodoro-form" onsubmit="return false;">
+            <div class="form-grid">
+                <div class="form-group full-width">
+                    <div class="label-container">
+                        <label>基準時刻の設定</label>
+                        <span class="toast-message" id="toast-msg"></span>
                     </div>
-
-                    <!-- 昼食 -->
-                    <div class="meal-item-row">
-                        <label class="meal-label-check">
-                            <input type="checkbox" id="meal-lunch-check" onchange="toggleMealInputs('lunch'); validateInputs();"> 昼食
-                        </label>
-                        <div class="meal-inputs" id="meal-lunch-inputs" style="display: none;">
-                            <label>第 <input type="number" id="meal-lunch-cycle" min="1" max="48" value="2" oninput="validateInputs()"> セット目</label>
-                            <label>時間 <input type="number" id="meal-lunch-time" min="1" max="180" value="45" oninput="validateInputs()"> 分</label>
-                        </div>
-                    </div>
-
-                    <!-- 夕食 -->
-                    <div class="meal-item-row">
-                        <label class="meal-label-check">
-                            <input type="checkbox" id="meal-dinner-check" onchange="toggleMealInputs('dinner'); validateInputs();"> 夕食
-                        </label>
-                        <div class="meal-inputs" id="meal-dinner-inputs" style="display: none;">
-                            <label>第 <input type="number" id="meal-dinner-cycle" min="1" max="48" value="4" oninput="validateInputs()"> セット目</label>
-                            <label>時間 <input type="number" id="meal-dinner-time" min="1" max="180" value="45" oninput="validateInputs()"> 分</label>
-                        </div>
+                    <div class="radio-group">
+                        <label><input type="radio" name="baseType" value="start" checked onchange="validateInputs()"> 開始時刻を基準にする</label>
+                        <label><input type="radio" name="baseType" value="end" onchange="validateInputs()"> 終了時刻を基準にする</label>
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <label for="startTime">開始時刻</label>
+                    <input type="time" id="startTime" value="09:00" onchange="validateInputs()" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="endTime">終了時刻</label>
+                    <input type="time" id="endTime" value="12:00" onchange="validateInputs()" required>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="cycles">
+                        ローテーション数（セット数）
+                        <span class="label-hint" id="max-cycles-hint"></span>
+                    </label>
+                    <div class="cycles-input-wrapper">
+                        <input type="number" id="cycles" min="1" max="48" value="4" oninput="validateInputs()" required>
+                        <span class="error-hint" id="cycles-error"></span>
+                    </div>
+                </div>
+
+                <!-- ごはん休憩設定 -->
+                <div class="form-group full-width">
+                    <div class="meal-section-title">ごはん休憩の設定</div>
+                    <div class="meal-options-container">
+                        <div class="meal-item-row">
+                            <label class="meal-label-check">
+                                <input type="checkbox" id="meal-bf-check" onchange="toggleMealInputs('bf'); validateInputs();"> 朝食
+                            </label>
+                            <div class="meal-inputs" id="meal-bf-inputs" style="display: none;">
+                                <label>第 <input type="number" id="meal-bf-cycle" min="1" max="48" value="1" oninput="validateInputs()"> セット目</label>
+                                <label>時間 <input type="number" id="meal-bf-time" min="1" max="180" value="30" oninput="validateInputs()"> 分</label>
+                            </div>
+                        </div>
+
+                        <div class="meal-item-row">
+                            <label class="meal-label-check">
+                                <input type="checkbox" id="meal-lunch-check" onchange="toggleMealInputs('lunch'); validateInputs();"> 昼食
+                            </label>
+                            <div class="meal-inputs" id="meal-lunch-inputs" style="display: none;">
+                                <label>第 <input type="number" id="meal-lunch-cycle" min="1" max="48" value="2" oninput="validateInputs()"> セット目</label>
+                                <label>時間 <input type="number" id="meal-lunch-time" min="1" max="180" value="45" oninput="validateInputs()"> 分</label>
+                            </div>
+                        </div>
+
+                        <div class="meal-item-row">
+                            <label class="meal-label-check">
+                                <input type="checkbox" id="meal-dinner-check" onchange="toggleMealInputs('dinner'); validateInputs();"> 夕食
+                            </label>
+                            <div class="meal-inputs" id="meal-dinner-inputs" style="display: none;">
+                                <label>第 <input type="number" id="meal-dinner-cycle" min="1" max="48" value="4" oninput="validateInputs()"> セット目</label>
+                                <label>時間 <input type="number" id="meal-dinner-time" min="1" max="180" value="45" oninput="validateInputs()"> 分</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="includeLastBreak" checked onchange="validateInputs()"> 最後の休憩を用意する</label>
+                    </div>
+                </div>
             </div>
 
-            <div class="form-group full-width">
-                <div class="checkbox-group">
-                    <label><input type="checkbox" id="includeLastBreak" checked onchange="validateInputs()"> 最後の休憩を用意する</label>
+            <button type="button" class="btn-generate" id="generate-btn" onclick="generateSchedule()">スケジュール作成</button>
+        </form>
+
+        <div class="result-area" id="result" style="display: none;">
+            <div class="table-error-container">
+                <span class="error-hint" id="table-error"></span>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="checkbox-col">完了</th>
+                            <th>セット</th>
+                            <th>区分</th>
+                            <th>時間帯</th>
+                            <th>時間配分（分）</th>
+                        </tr>
+                    </thead>
+                    <tbody id="schedule-body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. タイマー タブ -->
+    <div id="tab-timer" class="tab-content">
+        <div class="timer-card">
+            <!-- スライダー設定 -->
+            <div class="slider-group">
+                <div class="slider-header">
+                    <label for="custom-work-range">勉強時間（1〜180分）</label>
+                    <span class="slider-val" id="custom-work-val">25分</span>
+                </div>
+                <input type="range" id="custom-work-range" min="1" max="180" value="25" oninput="onCustomSliderChange()">
+            </div>
+
+            <div class="slider-group">
+                <div class="slider-header">
+                    <label for="custom-break-range">休憩時間（1〜30分）</label>
+                    <span class="slider-val" id="custom-break-val">5分</span>
+                </div>
+                <input type="range" id="custom-break-range" min="1" max="30" value="5" oninput="onCustomSliderChange()">
+            </div>
+
+            <div class="slider-group">
+                <div class="slider-header">
+                    <label for="custom-lunch-range">お昼時間（1〜120分）</label>
+                    <span class="slider-val" id="custom-lunch-val">45分</span>
+                </div>
+                <input type="range" id="custom-lunch-range" min="1" max="120" value="45" oninput="onCustomSliderChange()">
+            </div>
+
+            <div class="checkbox-group" style="margin-bottom: 20px;">
+                <label><input type="checkbox" id="custom-auto-loop" checked> 勉強時間と休憩時間を自動で行き来させる</label>
+            </div>
+
+            <!-- デジタルタイマー本体 -->
+            <div class="digital-display-box" id="timer-display-box">
+                <div class="timer-status-badge" id="timer-mode-badge">勉強タイマー</div>
+                <div class="digital-timer-time" id="custom-timer-clock">25:00</div>
+
+                <div class="timer-btn-group">
+                    <button type="button" class="btn-timer-ctrl btn-start" onclick="startCustomTimer('work')">勉強スタート</button>
+                    <button type="button" class="btn-timer-ctrl btn-start" style="background-color: #64748b;" onclick="startCustomTimer('break')">休憩スタート</button>
+                    <button type="button" class="btn-timer-ctrl btn-start" style="background-color: #d97706;" onclick="startCustomTimer('lunch')">お昼スタート</button>
+                    <button type="button" class="btn-timer-ctrl btn-pause" onclick="pauseCustomTimer()">一時停止</button>
+                    <button type="button" class="btn-timer-ctrl btn-reset" onclick="resetCustomTimer()">リセット</button>
+                    <button type="button" class="btn-timer-ctrl btn-fullscreen" id="timer-fs-btn" onclick="toggleFullscreen('timer-display-box', 'timer-fs-btn')">全画面表示</button>
                 </div>
             </div>
         </div>
+    </div>
 
-        <button type="button" class="btn-generate" id="generate-btn" onclick="generateSchedule()">スケジュール作成</button>
-    </form>
-
-    <div class="result-area" id="result" style="display: none;">
-        <div class="table-error-container">
-            <span class="error-hint" id="table-error"></span>
-        </div>
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th class="checkbox-col">完了</th>
-                        <th>セット</th>
-                        <th>区分</th>
-                        <th>時間帯</th>
-                        <th>時間配分（分）</th>
-                    </tr>
-                </thead>
-                <tbody id="schedule-body">
-                </tbody>
-            </table>
+    <!-- 3. 時計 タブ -->
+    <div id="tab-clock" class="tab-content">
+        <div class="clock-tab-card">
+            <div class="clock-tab-display" id="clock-tab-display-box">
+                <div class="clock-tab-date" id="clock-tab-date">----/--/-- (-)</div>
+                <div class="clock-tab-time" id="clock-tab-time">--:--:--</div>
+                <div class="timer-btn-group">
+                    <button type="button" class="btn-timer-ctrl btn-fullscreen" id="clock-fs-btn" onclick="toggleFullscreen('clock-tab-display-box', 'clock-fs-btn')">全画面表示</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -618,6 +802,23 @@
     let toastTimeout = null;
     let tableMsgTimeout = null;
     let timeOffset = 0;
+
+    // --- メインナビゲーションタブ切り替え ---
+    function switchMainTab(tabName) {
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+        if (tabName === 'table') {
+            document.querySelectorAll('.tab-btn')[0].classList.add('active');
+            document.getElementById('tab-table').classList.add('active');
+        } else if (tabName === 'timer') {
+            document.querySelectorAll('.tab-btn')[1].classList.add('active');
+            document.getElementById('tab-timer').classList.add('active');
+        } else if (tabName === 'clock') {
+            document.querySelectorAll('.tab-btn')[2].classList.add('active');
+            document.getElementById('tab-clock').classList.add('active');
+        }
+    }
 
     // ごはん休憩入力欄の開閉表示
     function toggleMealInputs(type) {
@@ -643,33 +844,19 @@
     // トーストメッセージ表示機能
     function showToast(text) {
         const toastEl = document.getElementById('toast-msg');
-        
-        if (toastTimeout) {
-            clearTimeout(toastTimeout);
-        }
-
+        if (toastTimeout) clearTimeout(toastTimeout);
         toastEl.textContent = text;
         toastEl.classList.add('show');
-
-        toastTimeout = setTimeout(() => {
-            toastEl.classList.remove('show');
-        }, 2000);
+        toastTimeout = setTimeout(() => toastEl.classList.remove('show'), 2000);
     }
 
-    // 表の上部（「指定された時間内では～」の位置）にメッセージを表示して2秒後フェードアウト
+    // 表の上部にメッセージを表示して2秒後フェードアウト
     function showTableMessage(text) {
         const tableErrorEl = document.getElementById('table-error');
-        
-        if (tableMsgTimeout) {
-            clearTimeout(tableMsgTimeout);
-        }
-
+        if (tableMsgTimeout) clearTimeout(tableMsgTimeout);
         tableErrorEl.textContent = text;
         tableErrorEl.classList.add('show');
-
-        tableMsgTimeout = setTimeout(() => {
-            tableErrorEl.classList.remove('show');
-        }, 2000);
+        tableMsgTimeout = setTimeout(() => tableErrorEl.classList.remove('show'), 2000);
     }
 
     // 時計機能（API補正時間）
@@ -684,14 +871,21 @@
         const minutes = String(now.getMinutes()).padStart(2, '0');
         const seconds = String(now.getSeconds()).padStart(2, '0');
 
-        document.getElementById('clock-date').textContent = `${year}/${month}/${date} (${day})`;
-        document.getElementById('clock-time').textContent = `${hours}:${minutes}:${seconds}`;
+        const dateStr = `year/{month}/date({day})`;
+        const timeStr = `hours:{minutes}:${seconds}`;
+
+        document.getElementById('clock-date').textContent = dateStr;
+        document.getElementById('clock-time').textContent = timeStr;
+
+        // 時計タブ用の表示更新
+        document.getElementById('clock-tab-date').textContent = dateStr;
+        document.getElementById('clock-tab-time').textContent = timeStr;
     }
 
     function formatTime(date) {
         const hours = String(date.getHours()).padStart(2, '0');
         const minutes = String(date.getMinutes()).padStart(2, '0');
-        return `${hours}:${minutes}`;
+        return `hours:{minutes}`;
     }
 
     // 利用可能な総分数を計算
@@ -706,10 +900,7 @@
         let startMin = startH * 60 + startM;
         let endMin = endH * 60 + endM;
 
-        if (endMin <= startMin) {
-            endMin += 24 * 60; // 日を跨ぐ場合
-        }
-
+        if (endMin <= startMin) endMin += 24 * 60;
         return endMin - startMin;
     }
 
@@ -727,11 +918,7 @@
             if (check) {
                 const cycle = parseInt(document.getElementById(`meal-${m.id}-cycle`).value, 10) || 1;
                 const duration = parseInt(document.getElementById(`meal-${m.id}-time`).value, 10) || 30;
-                configs.push({
-                    type: m.name,
-                    cycle: cycle,
-                    duration: duration
-                });
+                configs.push({ type: m.name, cycle: cycle, duration: duration });
             }
         });
         return configs;
@@ -762,7 +949,6 @@
         }
 
         const netMealExtraMinutes = meals.reduce((sum, m) => sum + (m.duration - 5), 0);
-
         const remainingMinutes = diffMinutes - netMealExtraMinutes;
         const effectiveMinutes = includeLastBreak ? remainingMinutes : remainingMinutes + 5;
         const maxCycles = Math.floor(effectiveMinutes / 30);
@@ -923,7 +1109,7 @@
                     <input type="checkbox" class="row-check" ${isChecked ? 'checked' : ''} onchange="toggleComplete(this)">
                 </td>
                 <td>第${item.cycle}セット</td>
-                <td><span class="badge ${badgeClass}">${item.type}</span></td>
+                <td><span class="badge badgeClass">{item.type}</span></td>
                 <td>${item.start} ～ ${item.end}</td>
                 <td>
                     <span><input type="number" class="table-input" value="${item.duration}" min="1" max="180" 
@@ -934,6 +1120,109 @@
         });
     }
 
+    // ----------------------------------
+    // 独立動作の自由タイマー機能
+    // ----------------------------------
+    let customTimerInterval = null;
+    let customSecondsLeft = 25 * 60;
+    let currentCustomMode = 'work'; // 'work', 'break', 'lunch'
+
+    function onCustomSliderChange() {
+        const workVal = document.getElementById('custom-work-range').value;
+        const breakVal = document.getElementById('custom-break-range').value;
+        const lunchVal = document.getElementById('custom-lunch-range').value;
+
+        document.getElementById('custom-work-val').textContent = `${workVal}分`;
+        document.getElementById('custom-break-val').textContent = `${breakVal}分`;
+        document.getElementById('custom-lunch-val').textContent = `${lunchVal}分`;
+
+        if (!customTimerInterval) {
+            updateCustomTimerDisplay();
+        }
+    }
+
+    function updateCustomTimerDisplay() {
+        if (!customTimerInterval) {
+            let m = 25;
+            if (currentCustomMode === 'work') m = document.getElementById('custom-work-range').value;
+            else if (currentCustomMode === 'break') m = document.getElementById('custom-break-range').value;
+            else if (currentCustomMode === 'lunch') m = document.getElementById('custom-lunch-range').value;
+            customSecondsLeft = m * 60;
+        }
+
+        const mins = String(Math.floor(customSecondsLeft / 60)).padStart(2, '0');
+        const secs = String(customSecondsLeft % 60).padStart(2, '0');
+        document.getElementById('custom-timer-clock').textContent = `mins:{secs}`;
+    }
+
+    function startCustomTimer(mode) {
+        if (mode) {
+            currentCustomMode = mode;
+            let m = 25;
+            if (mode === 'work') {
+                m = document.getElementById('custom-work-range').value;
+                document.getElementById('timer-mode-badge').textContent = '勉強タイマー';
+            } else if (mode === 'break') {
+                m = document.getElementById('custom-break-range').value;
+                document.getElementById('timer-mode-badge').textContent = '休憩タイマー';
+            } else if (mode === 'lunch') {
+                m = document.getElementById('custom-lunch-range').value;
+                document.getElementById('timer-mode-badge').textContent = 'お昼タイマー';
+            }
+            customSecondsLeft = m * 60;
+        }
+
+        if (customTimerInterval) clearInterval(customTimerInterval);
+
+        customTimerInterval = setInterval(() => {
+            if (customSecondsLeft > 0) {
+                customSecondsLeft--;
+                updateCustomTimerDisplay();
+            } else {
+                clearInterval(customTimerInterval);
+                customTimerInterval = null;
+
+                const isAutoLoop = document.getElementById('custom-auto-loop').checked;
+
+                if (isAutoLoop && currentCustomMode !== 'lunch') {
+                    if (currentCustomMode === 'work') {
+                        startCustomTimer('break');
+                    } else if (currentCustomMode === 'break') {
+                        startCustomTimer('work');
+                    }
+                } else {
+                    alert('タイマーが終了しました！');
+                }
+            }
+        }, 1000);
+    }
+
+    function pauseCustomTimer() {
+        if (customTimerInterval) {
+            clearInterval(customTimerInterval);
+            customTimerInterval = null;
+        }
+    }
+
+    function resetCustomTimer() {
+        pauseCustomTimer();
+        onCustomSliderChange();
+    }
+
+    // 全画面表示切替（PC・スマホ両対応）
+    function toggleFullscreen(elementId, btnId) {
+        const targetEl = document.getElementById(elementId);
+        const btn = document.getElementById(btnId);
+
+        if (!targetEl.classList.contains('fullscreen-mode')) {
+            targetEl.classList.add('fullscreen-mode');
+            btn.textContent = '縮小表示';
+        } else {
+            targetEl.classList.remove('fullscreen-mode');
+            btn.textContent = '全画面表示';
+        }
+    }
+
     // 初期化処理
     window.onload = () => {
         validateInputs();
@@ -941,8 +1230,11 @@
         setInterval(updateClock, 1000);
         fetchExternalTime();
         setInterval(fetchExternalTime, 60000);
+        onCustomSliderChange();
     };
 </script>
 
 </body>
 </html>
+
+
