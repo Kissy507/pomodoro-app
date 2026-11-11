@@ -859,7 +859,7 @@
         tableMsgTimeout = setTimeout(() => tableErrorEl.classList.remove('show'), 2000);
     }
 
-    // 時計機能（API補正時間）- 【修正① 適用済み】
+    // 時計機能（API補正時間）
     function updateClock() {
         const now = new Date(Date.now() + timeOffset);
         const days = ['日', '月', '火', '水', '木', '金', '土'];
@@ -882,7 +882,7 @@
         document.getElementById('clock-tab-time').textContent = timeStr;
     }
 
-    // 【修正② 適用済み】
+    // 【修正点】テンプレートリテラルの文法エラーを確実に修復
     function formatTime(date) {
         const hours = String(date.getHours()).padStart(2, '0');
         const minutes = String(date.getMinutes()).padStart(2, '0');
@@ -1035,7 +1035,7 @@
         }
     }
 
-    // タイムライン描画 - 【修正③ 適用済み】
+    // タイムライン描画
     function renderTimeline() {
         const baseType = document.querySelector('input[name="baseType"]:checked').value;
         const startTimeVal = document.getElementById('startTime').value;
@@ -1142,7 +1142,6 @@
         }
     }
 
-    // 【修正④ 適用済み】
     function updateCustomTimerDisplay() {
         if (!customTimerInterval) {
             let m = 25;
