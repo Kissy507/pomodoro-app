@@ -468,12 +468,125 @@
         }
 
         .digital-timer-time {
-            font-size: 4rem;
+            font-size: 5.5rem;
             font-weight: 900;
             font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
             letter-spacing: 0.05em;
             line-height: 1;
             margin-bottom: 20px;
+        }
+
+        /* 終了時の通知・サウンド設定 */
+        .sound-settings {
+            background: #ffffff;
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            padding: 10px 14px;
+            margin-bottom: 4px;
+        }
+
+        .sound-settings summary {
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .sound-settings-body {
+            margin-top: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .sound-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sound-row-label {
+            width: 5.5em;
+            flex-shrink: 0;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .sound-row select {
+            flex: 1;
+            min-width: 0;
+            padding: 8px 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 16px;
+            background: #ffffff;
+            color: var(--text-main);
+        }
+
+        .btn-preview {
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            color: var(--text-main);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .sound-note {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* タイマーのボタン配置：上段=スタート3つ / 中段=一時停止・リセット / 下段=全画面 */
+        .timer-ctrl-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+            width: 100%;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .timer-ctrl-grid .btn-timer-ctrl {
+            padding: 10px 4px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        .timer-ctrl-grid .span-2 { grid-column: span 2; }
+        .timer-ctrl-grid .span-3 { grid-column: span 3; }
+        .timer-ctrl-grid .span-6 { grid-column: span 6; }
+
+        .timer-ctrl-grid .btn-main {
+            padding: 13px 4px;
+            font-size: 0.95rem;
+        }
+
+        .timer-ctrl-grid .btn-fullscreen {
+            padding: 8px 4px;
+            font-size: 0.8rem;
+        }
+
+        @media screen and (max-width: 640px) {
+            .timer-ctrl-grid { gap: 6px; }
+            .timer-ctrl-grid .btn-timer-ctrl { font-size: 0.76rem; }
+            .timer-ctrl-grid .btn-main { font-size: 0.9rem; }
+            .timer-ctrl-grid .btn-fullscreen { font-size: 0.76rem; }
+        }
+
+        .timer-paused-note {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.75);
+            margin-bottom: 8px;
+            visibility: hidden;
+        }
+
+        .timer-paused-note.show {
+            visibility: visible;
         }
 
         .timer-btn-group {
@@ -502,7 +615,7 @@
         .btn-reset { background-color: #64748b; color: white; }
         .btn-fullscreen { background-color: rgba(255, 255, 255, 0.2); color: white; border: 1px solid rgba(255, 255, 255, 0.4); }
 
-        /* 全画面表示用クラス */
+        /* 全画面表示用クラス（サイズ・バランス調整済み） */
         .fullscreen-mode {
             position: fixed !important;
             top: 0 !important;
@@ -519,8 +632,27 @@
             box-sizing: border-box !important;
         }
 
+        /* 勉強タイマー：全画面時の時間数字（2まわりほど小さく調整） */
         .fullscreen-mode .digital-timer-time {
-            font-size: 15vw;
+            font-size: min(15vw, 26vh);
+        }
+
+        /* 勉強タイマー：全画面時のバッジ文字（数字に合わせてバランスよく拡大） */
+        .fullscreen-mode .timer-status-badge {
+            font-size: min(2.5vw, 4vh);
+            padding: 8px 24px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+        }
+
+        /* 時計タブ：全画面時の時刻数字（気持ち大きく調整） */
+        .fullscreen-mode .clock-tab-time {
+            font-size: min(18vw, 32vh);
+        }
+
+        /* 時計タブ：全画面時の年月日（気持ち小さく調整） */
+        .fullscreen-mode .clock-tab-date {
+            font-size: min(3.8vw, 6vh);
         }
 
         .clock-tab-display {
@@ -534,14 +666,14 @@
         }
 
         .clock-tab-date {
-            font-size: 1.5rem;
+            font-size: 1.9rem;
             font-weight: 700;
             color: #94a3b8;
             margin-bottom: 10px;
         }
 
         .clock-tab-time {
-            font-size: 5rem;
+            font-size: 7rem;
             font-weight: 900;
             font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
             letter-spacing: 0.05em;
@@ -567,9 +699,14 @@
             .radio-group { flex-direction: column; align-items: flex-start; gap: 10px; }
             .meal-item-row { flex-direction: column; align-items: flex-start; gap: 10px; }
 
-            .digital-timer-time { font-size: 2.8rem; }
-            .clock-tab-time { font-size: 3rem; }
-            .clock-tab-date { font-size: 1.1rem; }
+            /* 数字を大きく見せるため、周りの余白を詰める */
+            .timer-card, .clock-tab-card { padding: 14px; }
+            .digital-display-box { padding: 20px 12px; }
+            .clock-tab-display { padding: 36px 10px; }
+
+            .digital-timer-time { font-size: 19vw; }
+            .clock-tab-time { font-size: 12.5vw; }
+            .clock-tab-date { font-size: 1.3rem; }
 
             table, thead, tbody, th, td, tr { display: block; }
             thead { display: none; }
@@ -647,12 +784,12 @@
 
                 <div class="form-group">
                     <label for="startTime">開始時刻</label>
-                    <input type="time" id="startTime" value="09:00" onchange="validateInputs()" required>
+                    <input type="time" id="startTime" onchange="validateInputs()" required>
                 </div>
 
                 <div class="form-group">
                     <label for="endTime">終了時刻</label>
-                    <input type="time" id="endTime" value="12:00" onchange="validateInputs()" required>
+                    <input type="time" id="endTime" onchange="validateInputs()" required>
                 </div>
 
                 <div class="form-group full-width">
@@ -766,18 +903,52 @@
                 <label><input type="checkbox" id="custom-auto-loop" checked> 勉強時間と休憩時間を自動で行き来させる</label>
             </div>
 
+            <!-- 終了時の通知・サウンド設定 -->
+            <details class="sound-settings">
+                <summary>終了時の通知・サウンド設定</summary>
+                <div class="sound-settings-body">
+                    <div class="sound-row">
+                        <span class="sound-row-label">勉強終了</span>
+                        <select id="sound-work" onchange="onSoundSettingChange()"></select>
+                        <button type="button" class="btn-preview" onclick="previewSound('work')">試聴</button>
+                    </div>
+                    <div class="sound-row">
+                        <span class="sound-row-label">休憩終了</span>
+                        <select id="sound-break" onchange="onSoundSettingChange()"></select>
+                        <button type="button" class="btn-preview" onclick="previewSound('break')">試聴</button>
+                    </div>
+                    <div class="sound-row">
+                        <span class="sound-row-label">ご飯終了</span>
+                        <select id="sound-lunch" onchange="onSoundSettingChange()"></select>
+                        <button type="button" class="btn-preview" onclick="previewSound('lunch')">試聴</button>
+                    </div>
+
+                    <div class="slider-group" style="margin-bottom: 0;">
+                        <div class="slider-header">
+                            <label for="sound-volume">音量</label>
+                            <span class="slider-val" id="sound-volume-val">70%</span>
+                        </div>
+                        <input type="range" id="sound-volume" min="0" max="100" value="70" oninput="onSoundSettingChange()">
+                    </div>
+
+                    <label><input type="checkbox" id="notify-enable" onchange="onNotifyToggle()"> 終了時に通知を出す</label>
+                    <div class="sound-note" id="notify-note"></div>
+                </div>
+            </details>
+
             <!-- デジタルタイマー本体 -->
             <div class="digital-display-box" id="timer-display-box">
                 <div class="timer-status-badge" id="timer-mode-badge">勉強タイマー</div>
+                <div class="timer-paused-note" id="timer-paused-note">一時停止中</div>
                 <div class="digital-timer-time" id="custom-timer-clock">25:00</div>
 
-                <div class="timer-btn-group">
-                    <button type="button" class="btn-timer-ctrl btn-start" onclick="startCustomTimer('work')">勉強スタート</button>
-                    <button type="button" class="btn-timer-ctrl btn-start" style="background-color: #64748b;" onclick="startCustomTimer('break')">休憩スタート</button>
-                    <button type="button" class="btn-timer-ctrl btn-start" style="background-color: #d97706;" onclick="startCustomTimer('lunch')">ご飯スタート</button>
-                    <button type="button" class="btn-timer-ctrl btn-pause" onclick="pauseCustomTimer()">一時停止</button>
-                    <button type="button" class="btn-timer-ctrl btn-reset" onclick="resetCustomTimer()">リセット</button>
-                    <button type="button" class="btn-timer-ctrl btn-fullscreen" id="timer-fs-btn" onclick="toggleFullscreen('timer-display-box', 'timer-fs-btn')">全画面表示</button>
+                <div class="timer-ctrl-grid">
+                    <button type="button" class="btn-timer-ctrl btn-start span-2" onclick="startCustomTimer('work')">勉強スタート</button>
+                    <button type="button" class="btn-timer-ctrl btn-start span-2" style="background-color: #64748b;" onclick="startCustomTimer('break')">休憩スタート</button>
+                    <button type="button" class="btn-timer-ctrl btn-start span-2" style="background-color: #d97706;" onclick="startCustomTimer('lunch')">ご飯スタート</button>
+                    <button type="button" class="btn-timer-ctrl btn-pause btn-main span-3" id="timer-pause-btn" onclick="togglePauseCustomTimer()">一時停止</button>
+                    <button type="button" class="btn-timer-ctrl btn-reset btn-main span-3" onclick="resetCustomTimer()">リセット</button>
+                    <button type="button" class="btn-timer-ctrl btn-fullscreen span-6" id="timer-fs-btn" onclick="toggleFullscreen('timer-display-box', 'timer-fs-btn')">全画面表示</button>
                 </div>
             </div>
         </div>
@@ -871,8 +1042,8 @@
         const minutes = String(now.getMinutes()).padStart(2, '0');
         const seconds = String(now.getSeconds()).padStart(2, '0');
 
-        const dateStr = `${year}/${month}/${date}(${day})`;
-        const timeStr = `${hours}:${minutes}:${seconds}`;
+        const dateStr = `year/{month}/date({day})`;
+        const timeStr = `hours:{minutes}:${seconds}`;
 
         document.getElementById('clock-date').textContent = dateStr;
         document.getElementById('clock-time').textContent = timeStr;
@@ -885,7 +1056,7 @@
     function formatTime(date) {
         const hours = String(date.getHours()).padStart(2, '0');
         const minutes = String(date.getMinutes()).padStart(2, '0');
-        return `${hours}:${minutes}`;
+        return `hours:{minutes}`;
     }
 
     // 利用可能な総分数を計算
@@ -1109,7 +1280,7 @@
                     <input type="checkbox" class="row-check" ${isChecked ? 'checked' : ''} onchange="toggleComplete(this)">
                 </td>
                 <td>第${item.cycle}セット</td>
-                <td><span class="badge ${badgeClass}">${item.type}</span></td>
+                <td><span class="badge badgeClass">{item.type}</span></td>
                 <td>${item.start} ～ ${item.end}</td>
                 <td>
                     <span><input type="number" class="table-input" value="${item.duration}" min="1" max="180" 
@@ -1125,6 +1296,9 @@
     // ----------------------------------
     let customTimerInterval = null;
     let customSecondsLeft = 25 * 60;
+    let customEndTime = 0; // タイマー終了予定時刻（ミリ秒）
+    let customPaused = false; // 一時停止中かどうか
+    let customRemainingMs = 25 * 60 * 1000; // 残り時間（ミリ秒）
     let currentCustomMode = 'work'; // 'work', 'break', 'lunch'
 
     function onCustomSliderChange() {
@@ -1136,7 +1310,7 @@
         document.getElementById('custom-break-val').textContent = `${breakVal}分`;
         document.getElementById('custom-lunch-val').textContent = `${lunchVal}分`;
 
-        if (!customTimerInterval) {
+        if (!customTimerInterval && !customPaused) {
             updateCustomTimerDisplay();
         }
     }
@@ -1152,10 +1326,31 @@
 
         const mins = String(Math.floor(customSecondsLeft / 60)).padStart(2, '0');
         const secs = String(customSecondsLeft % 60).padStart(2, '0');
-        document.getElementById('custom-timer-clock').textContent = `${mins}:${secs}`;
+        document.getElementById('custom-timer-clock').textContent = `mins:{secs}`;
+    }
+
+    function setPausedState(paused) {
+        customPaused = paused;
+        const noteEl = document.getElementById('timer-paused-note');
+        if (paused) noteEl.textContent = '一時停止中';
+        noteEl.classList.toggle('show', paused);
+        document.getElementById('timer-pause-btn').textContent = paused ? '再開' : '一時停止';
+    }
+
+    // タイマー上の小さな表示
+    function showTimerNote(text) {
+        const noteEl = document.getElementById('timer-paused-note');
+        noteEl.textContent = text;
+        noteEl.classList.add('show');
     }
 
     function startCustomTimer(mode) {
+        if (customLoopTimeout) {
+            clearTimeout(customLoopTimeout);
+            customLoopTimeout = null;
+        }
+        unlockAudio();
+        setPausedState(false);
         if (mode) {
             currentCustomMode = mode;
             let m = 25;
@@ -1174,38 +1369,73 @@
 
         if (customTimerInterval) clearInterval(customTimerInterval);
 
-        customTimerInterval = setInterval(() => {
-            if (customSecondsLeft > 0) {
-                customSecondsLeft--;
-                updateCustomTimerDisplay();
-            } else {
-                clearInterval(customTimerInterval);
-                customTimerInterval = null;
+        if (mode) customRemainingMs = customSecondsLeft * 1000;
+        customEndTime = Date.now() + customRemainingMs;
+        customTimerInterval = setInterval(tickCustomTimer, 250);
+        updateCustomTimerDisplay();
+    }
 
-                const isAutoLoop = document.getElementById('custom-auto-loop').checked;
+    function tickCustomTimer() {
+        if (!customTimerInterval) return;
 
-                if (isAutoLoop && currentCustomMode !== 'lunch') {
-                    if (currentCustomMode === 'work') {
-                        startCustomTimer('break');
-                    } else if (currentCustomMode === 'break') {
-                        startCustomTimer('work');
-                    }
-                } else {
-                    alert('タイマーが終了しました！');
-                }
-            }
-        }, 1000);
+        const remaining = Math.max(0, Math.ceil((customEndTime - Date.now()) / 1000));
+        customSecondsLeft = remaining;
+        updateCustomTimerDisplay();
+
+        if (remaining > 0) return;
+
+        clearInterval(customTimerInterval);
+        customTimerInterval = null;
+
+        onCustomTimerFinished();
+    }
+
+    function onCustomTimerFinished() {
+        const finishedMode = currentCustomMode;
+        playTimerSound(finishedMode);
+        showFinishNotification(finishedMode);
+        showTimerNote(`${MODE_LABELS[finishedMode]}タイマー終了`);
+
+        const isAutoLoop = document.getElementById('custom-auto-loop').checked;
+        if (isAutoLoop && finishedMode !== 'lunch') {
+            const nextMode = finishedMode === 'work' ? 'break' : 'work';
+            customLoopTimeout = setTimeout(() => {
+                customLoopTimeout = null;
+                startCustomTimer(nextMode);
+            }, 1000);
+        }
+    }
+
+    function togglePauseCustomTimer() {
+        if (customPaused) {
+            startCustomTimer();
+        } else if (customTimerInterval) {
+            pauseCustomTimer();
+            setPausedState(true);
+        }
     }
 
     function pauseCustomTimer() {
         if (customTimerInterval) {
+            customRemainingMs = Math.max(0, customEndTime - Date.now());
+            customSecondsLeft = Math.ceil(customRemainingMs / 1000);
+            updateCustomTimerDisplay();
             clearInterval(customTimerInterval);
             customTimerInterval = null;
         }
     }
 
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) tickCustomTimer();
+    });
+
     function resetCustomTimer() {
+        if (customLoopTimeout) {
+            clearTimeout(customLoopTimeout);
+            customLoopTimeout = null;
+        }
         pauseCustomTimer();
+        setPausedState(false);
         onCustomSliderChange();
     }
 
@@ -1223,8 +1453,254 @@
         }
     }
 
+    // ----------------------------------
+    // 時刻ピッカーの「リセット」対策
+    // ----------------------------------
+    const TIME_INPUT_DEFAULTS = { startTime: '09:00', endTime: '12:00' };
+    const timeOpenValues = {};
+
+    function restoreTimeIfReset(id) {
+        const el = document.getElementById(id);
+        if (el.value === '' && timeOpenValues[id]) {
+            el.value = timeOpenValues[id];
+            validateInputs();
+        }
+    }
+
+    function initTimeInputs() {
+        Object.keys(TIME_INPUT_DEFAULTS).forEach(id => {
+            const el = document.getElementById(id);
+            if (!el.value) el.value = TIME_INPUT_DEFAULTS[id];
+            timeOpenValues[id] = el.value;
+
+            const rememberOpenValue = () => { if (el.value) timeOpenValues[id] = el.value; };
+            el.addEventListener('focus', rememberOpenValue);
+            el.addEventListener('pointerdown', rememberOpenValue);
+
+            ['input', 'change', 'blur'].forEach(evt => {
+                el.addEventListener(evt, () => restoreTimeIfReset(id));
+            });
+        });
+
+        setInterval(() => {
+            Object.keys(TIME_INPUT_DEFAULTS).forEach(restoreTimeIfReset);
+        }, 300);
+    }
+
+    // ----------------------------------
+    // 終了時のサウンド・通知
+    // ----------------------------------
+    const MODE_LABELS = { work: '勉強', break: '休憩', lunch: 'ご飯' };
+    let customLoopTimeout = null;
+    let audioCtx = null;
+
+    const SOUND_LIBRARY = {
+        pirorin: { name: 'ピロリン♪', notes: [
+            { f: 880, t: 0, d: 0.25 },
+            { f: 1318.5, t: 0.16, d: 0.6 }
+        ]},
+        chime: { name: 'チャイム', notes: [
+            { f: 523.25, t: 0, d: 0.7 },
+            { f: 659.25, t: 0.3, d: 0.7 },
+            { f: 783.99, t: 0.6, d: 1.2 }
+        ]},
+        bell: { name: 'ベル', notes: [
+            { f: 880, t: 0, d: 1.8, partials: [[1, 1], [2.76, 0.4], [5.4, 0.2]] },
+            { f: 880, t: 1.0, d: 1.8, partials: [[1, 1], [2.76, 0.4], [5.4, 0.2]] }
+        ]},
+        wood: { name: '木琴', notes: [
+            { f: 784, t: 0, d: 0.3, type: 'triangle' },
+            { f: 988, t: 0.14, d: 0.3, type: 'triangle' },
+            { f: 1175, t: 0.28, d: 0.5, type: 'triangle' }
+        ]},
+        soft: { name: 'やさしい音', notes: [
+            { f: 523.25, t: 0, d: 1.4, g: 0.8 },
+            { f: 659.25, t: 0.5, d: 1.6, g: 0.8 }
+        ]},
+        alarm: { name: 'アラーム', notes: [
+            { f: 988, t: 0, d: 0.16, type: 'square', g: 0.5 },
+            { f: 988, t: 0.26, d: 0.16, type: 'square', g: 0.5 },
+            { f: 988, t: 0.52, d: 0.16, type: 'square', g: 0.5 },
+            { f: 988, t: 0.78, d: 0.16, type: 'square', g: 0.5 }
+        ]},
+        none: { name: '音なし', notes: [] }
+    };
+
+    const SOUND_DEFAULTS = { work: 'pirorin', break: 'chime', lunch: 'bell' };
+    const SOUND_SETTINGS_KEY = 'pomodoro.soundSettings';
+
+    function getAudioContext() {
+        if (!audioCtx) {
+            try {
+                const Ctx = window.AudioContext || window.webkitAudioContext;
+                if (Ctx) audioCtx = new Ctx();
+            } catch (e) {
+                audioCtx = null;
+            }
+        }
+        return audioCtx;
+    }
+
+    function unlockAudio() {
+        const ctx = getAudioContext();
+        if (!ctx) return;
+        try {
+            if (ctx.state === 'suspended') ctx.resume();
+            const buf = ctx.createBuffer(1, 1, 22050);
+            const src = ctx.createBufferSource();
+            src.buffer = buf;
+            src.connect(ctx.destination);
+            src.start(0);
+        } catch (e) {
+            // 失敗しても動作は続ける
+        }
+    }
+
+    function playSoundById(soundId) {
+        const def = SOUND_LIBRARY[soundId];
+        if (!def || def.notes.length === 0) return;
+        const ctx = getAudioContext();
+        if (!ctx) return;
+
+        try {
+            if (ctx.state === 'suspended') ctx.resume();
+
+            const volume = (parseInt(document.getElementById('sound-volume').value, 10) || 0) / 100;
+            if (volume <= 0) return;
+
+            const master = ctx.createGain();
+            master.gain.value = volume;
+            master.connect(ctx.destination);
+
+            const base = ctx.currentTime + 0.05;
+            def.notes.forEach(n => {
+                (n.partials || [[1, 1]]).forEach(([ratio, partialGain]) => {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = n.type || 'sine';
+                    osc.frequency.value = n.f * ratio;
+
+                    const peak = 0.3 * (n.g === undefined ? 1 : n.g) * partialGain;
+                    const t0 = base + n.t;
+                    gain.gain.setValueAtTime(0.0001, t0);
+                    gain.gain.exponentialRampToValueAtTime(peak, t0 + 0.01);
+                    gain.gain.exponentialRampToValueAtTime(0.0001, t0 + n.d);
+
+                    osc.connect(gain);
+                    gain.connect(master);
+                    osc.start(t0);
+                    osc.stop(t0 + n.d + 0.05);
+                });
+            });
+        } catch (e) {
+            // 音が出せない環境では何もしない
+        }
+    }
+
+    function playTimerSound(mode) {
+        const select = document.getElementById(`sound-${mode}`);
+        if (select) playSoundById(select.value);
+    }
+
+    function previewSound(mode) {
+        unlockAudio();
+        playTimerSound(mode);
+    }
+
+    function showFinishNotification(mode) {
+        const checkbox = document.getElementById('notify-enable');
+        if (!checkbox.checked || !('Notification' in window)) return;
+        if (Notification.permission !== 'granted') return;
+        try {
+            new Notification('ポモドーロタイマー', { body: `${MODE_LABELS[mode]}の時間が終わりました` });
+        } catch (e) {
+            // 通知を出せない環境では音のみ
+        }
+    }
+
+    function saveSoundSettings() {
+        try {
+            const data = {
+                work: document.getElementById('sound-work').value,
+                break: document.getElementById('sound-break').value,
+                lunch: document.getElementById('sound-lunch').value,
+                volume: document.getElementById('sound-volume').value,
+                notify: document.getElementById('notify-enable').checked
+            };
+            localStorage.setItem(SOUND_SETTINGS_KEY, JSON.stringify(data));
+        } catch (e) {
+            // 保存できない環境では何もしない
+        }
+    }
+
+    function onSoundSettingChange() {
+        document.getElementById('sound-volume-val').textContent =
+            `${document.getElementById('sound-volume').value}%`;
+        saveSoundSettings();
+    }
+
+    function onNotifyToggle() {
+        const checkbox = document.getElementById('notify-enable');
+        const noteEl = document.getElementById('notify-note');
+        noteEl.textContent = '';
+
+        if (checkbox.checked) {
+            if (!('Notification' in window)) {
+                checkbox.checked = false;
+            } else if (Notification.permission === 'denied') {
+                checkbox.checked = false;
+                noteEl.textContent = 'ブラウザの設定で通知が許可されていません。';
+            } else if (Notification.permission !== 'granted') {
+                Notification.requestPermission().then(result => {
+                    if (result !== 'granted') {
+                        checkbox.checked = false;
+                        noteEl.textContent = '通知が許可されませんでした。';
+                    }
+                    saveSoundSettings();
+                });
+            }
+        }
+        saveSoundSettings();
+    }
+
+    function initSoundSettings() {
+        let saved = {};
+        try {
+            saved = JSON.parse(localStorage.getItem(SOUND_SETTINGS_KEY)) || {};
+        } catch (e) {
+            saved = {};
+        }
+
+        ['work', 'break', 'lunch'].forEach(mode => {
+            const select = document.getElementById(`sound-${mode}`);
+            Object.keys(SOUND_LIBRARY).forEach(id => {
+                const opt = document.createElement('option');
+                opt.value = id;
+                opt.textContent = SOUND_LIBRARY[id].name;
+                select.appendChild(opt);
+            });
+            const wanted = saved[mode];
+            select.value = SOUND_LIBRARY[wanted] ? wanted : SOUND_DEFAULTS[mode];
+        });
+
+        if (saved.volume !== undefined) document.getElementById('sound-volume').value = saved.volume;
+        document.getElementById('sound-volume-val').textContent =
+            `${document.getElementById('sound-volume').value}%`;
+
+        const notifyCheckbox = document.getElementById('notify-enable');
+        const noteEl = document.getElementById('notify-note');
+        if (!('Notification' in window)) {
+            notifyCheckbox.disabled = true;
+            noteEl.textContent = 'この端末のブラウザでは通知を出せません（音のみ鳴ります）。';
+        } else {
+            notifyCheckbox.checked = !!saved.notify && Notification.permission === 'granted';
+        }
+    }
+
     // 初期化処理
     window.onload = () => {
+        initSoundSettings();
+        initTimeInputs();
         validateInputs();
         updateClock();
         setInterval(updateClock, 1000);
@@ -1236,4 +1712,5 @@
 
 </body>
 </html>
+
 
