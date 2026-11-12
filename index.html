@@ -18,15 +18,12 @@
             --text-light: #64748b;
             --border-color: #cbd5e1;
             --error-color: #94a3b8;
-            
             --work-bg: #ffffff;
             --work-badge: #dbeafe;
             --work-text: #1e40af;
-            
             --break-bg: #f1f5f9;
             --break-badge: #e2e8f0;
             --break-text: #334155;
-
             --meal-bg: #fffbe6;
             --meal-badge: #fef08a;
             --meal-text: #854d0e;
@@ -120,19 +117,19 @@
             text-align: center;
         }
 
-        .tab-btn.active {
-            background-color: #ffffff;
-            color: var(--primary-color);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-        }
+            .tab-btn.active {
+                background-color: #ffffff;
+                color: var(--primary-color);
+                box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            }
 
         .tab-content {
             display: none;
         }
 
-        .tab-content.active {
-            display: block;
-        }
+            .tab-content.active {
+                display: block;
+            }
 
         /* ポモドーロテーブル用スタイル */
         .form-grid {
@@ -151,9 +148,9 @@
             flex-direction: column;
         }
 
-        .form-group.full-width {
-            grid-column: 1 / -1;
-        }
+            .form-group.full-width {
+                grid-column: 1 / -1;
+            }
 
         .label-container {
             display: flex;
@@ -176,10 +173,10 @@
             transition: opacity 1s linear;
         }
 
-        .toast-message.show {
-            opacity: 1;
-            transition: none;
-        }
+            .toast-message.show {
+                opacity: 1;
+                transition: none;
+            }
 
         .label-hint {
             color: var(--text-light);
@@ -197,10 +194,10 @@
             transition: opacity 1s linear;
         }
 
-        .error-hint.show {
-            opacity: 1;
-            transition: none;
-        }
+            .error-hint.show {
+                opacity: 1;
+                transition: none;
+            }
 
         input[type="time"],
         input[type="number"] {
@@ -215,11 +212,11 @@
             transition: border-color 0.2s, box-shadow 0.2s;
         }
 
-        input[type="time"]:focus,
-        input[type="number"]:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-        }
+            input[type="time"]:focus,
+            input[type="number"]:focus {
+                border-color: var(--primary-color);
+                box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+            }
 
         .radio-group, .checkbox-group {
             display: flex;
@@ -229,14 +226,14 @@
             flex-wrap: wrap;
         }
 
-        .radio-group label, .checkbox-group label {
-            font-weight: 600;
-            cursor: pointer;
-            margin-bottom: 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+            .radio-group label, .checkbox-group label {
+                font-weight: 600;
+                cursor: pointer;
+                margin-bottom: 0;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
 
         .cycles-input-wrapper {
             display: flex;
@@ -245,9 +242,9 @@
             gap: 12px;
         }
 
-        .cycles-input-wrapper input {
-            width: 100px;
-        }
+            .cycles-input-wrapper input {
+                width: 100px;
+            }
 
         .meal-section-title {
             font-size: 0.95rem;
@@ -275,10 +272,10 @@
             border: 1px solid var(--card-border);
         }
 
-        .meal-item-row .meal-label-check {
-            min-width: 80px;
-            font-weight: 600;
-        }
+            .meal-item-row .meal-label-check {
+                min-width: 80px;
+                font-weight: 600;
+            }
 
         .meal-inputs {
             display: flex;
@@ -287,21 +284,21 @@
             flex-wrap: wrap;
         }
 
-        .meal-inputs input[type="number"] {
-            width: 80px;
-            padding: 6px 10px;
-            font-size: 0.9rem;
-        }
+            .meal-inputs input[type="number"] {
+                width: 80px;
+                padding: 6px 10px;
+                font-size: 0.9rem;
+            }
 
-        .meal-inputs label {
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            margin-bottom: 0;
-        }
+            .meal-inputs label {
+                font-size: 0.85rem;
+                font-weight: 500;
+                color: var(--text-muted);
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                margin-bottom: 0;
+            }
 
         button.btn-generate {
             width: 100%;
@@ -317,16 +314,16 @@
             box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
         }
 
-        button.btn-generate:hover:not(:disabled) {
-            background-color: var(--primary-hover);
-        }
+            button.btn-generate:hover:not(:disabled) {
+                background-color: var(--primary-hover);
+            }
 
-        button.btn-generate:disabled {
-            background-color: var(--disabled-color);
-            cursor: not-allowed;
-            opacity: 0.6;
-            box-shadow: none;
-        }
+            button.btn-generate:disabled {
+                background-color: var(--disabled-color);
+                cursor: not-allowed;
+                opacity: 0.6;
+                box-shadow: none;
+            }
 
         .result-area {
             margin-top: 32px;
@@ -362,9 +359,17 @@
             border-top: 1px solid var(--card-border);
         }
 
-        tr.work { background-color: var(--work-bg); }
-        tr.break { background-color: var(--break-bg); }
-        tr.meal { background-color: var(--meal-bg); }
+        tr.work {
+            background-color: var(--work-bg);
+        }
+
+        tr.break {
+            background-color: var(--break-bg);
+        }
+
+        tr.meal {
+            background-color: var(--meal-bg);
+        }
 
         tr.completed td {
             text-decoration: line-through;
@@ -384,9 +389,20 @@
             display: inline-block;
         }
 
-        .badge-work { background-color: var(--work-badge); color: var(--work-text); }
-        .badge-break { background-color: var(--break-badge); color: var(--break-text); }
-        .badge-meal { background-color: var(--meal-badge); color: var(--meal-text); }
+        .badge-work {
+            background-color: var(--work-badge);
+            color: var(--work-text);
+        }
+
+        .badge-break {
+            background-color: var(--break-badge);
+            color: var(--break-text);
+        }
+
+        .badge-meal {
+            background-color: var(--meal-badge);
+            color: var(--meal-text);
+        }
 
         .table-input {
             width: 65px;
@@ -398,7 +414,9 @@
             font-weight: 600;
         }
 
-        .checkbox-col { width: 50px; }
+        .checkbox-col {
+            width: 50px;
+        }
 
         input[type="checkbox"] {
             width: 20px;
@@ -429,10 +447,10 @@
             margin-bottom: 8px;
         }
 
-        .slider-header label {
-            font-size: 0.95rem;
-            font-weight: 700;
-        }
+            .slider-header label {
+                font-size: 0.95rem;
+                font-weight: 700;
+            }
 
         .slider-val {
             font-size: 1.1rem;
@@ -485,12 +503,12 @@
             margin-bottom: 4px;
         }
 
-        .sound-settings summary {
-            cursor: pointer;
-            font-weight: 700;
-            font-size: 0.95rem;
-            color: var(--text-main);
-        }
+            .sound-settings summary {
+                cursor: pointer;
+                font-weight: 700;
+                font-size: 0.95rem;
+                color: var(--text-main);
+            }
 
         .sound-settings-body {
             margin-top: 12px;
@@ -550,31 +568,50 @@
             margin: 0 auto;
         }
 
-        .timer-ctrl-grid .btn-timer-ctrl {
-            padding: 10px 4px;
-            font-size: 0.85rem;
-            white-space: nowrap;
-        }
+            .timer-ctrl-grid .btn-timer-ctrl {
+                padding: 10px 4px;
+                font-size: 0.85rem;
+                white-space: nowrap;
+            }
 
-        .timer-ctrl-grid .span-2 { grid-column: span 2; }
-        .timer-ctrl-grid .span-3 { grid-column: span 3; }
-        .timer-ctrl-grid .span-6 { grid-column: span 6; }
+            .timer-ctrl-grid .span-2 {
+                grid-column: span 2;
+            }
 
-        .timer-ctrl-grid .btn-main {
-            padding: 13px 4px;
-            font-size: 0.95rem;
-        }
+            .timer-ctrl-grid .span-3 {
+                grid-column: span 3;
+            }
 
-        .timer-ctrl-grid .btn-fullscreen {
-            padding: 8px 4px;
-            font-size: 0.8rem;
-        }
+            .timer-ctrl-grid .span-6 {
+                grid-column: span 6;
+            }
+
+            .timer-ctrl-grid .btn-main {
+                padding: 13px 4px;
+                font-size: 0.95rem;
+            }
+
+            .timer-ctrl-grid .btn-fullscreen {
+                padding: 8px 4px;
+                font-size: 0.8rem;
+            }
 
         @media screen and (max-width: 640px) {
-            .timer-ctrl-grid { gap: 6px; }
-            .timer-ctrl-grid .btn-timer-ctrl { font-size: 0.76rem; }
-            .timer-ctrl-grid .btn-main { font-size: 0.9rem; }
-            .timer-ctrl-grid .btn-fullscreen { font-size: 0.76rem; }
+            .timer-ctrl-grid {
+                gap: 6px;
+            }
+
+                .timer-ctrl-grid .btn-timer-ctrl {
+                    font-size: 0.76rem;
+                }
+
+                .timer-ctrl-grid .btn-main {
+                    font-size: 0.9rem;
+                }
+
+                .timer-ctrl-grid .btn-fullscreen {
+                    font-size: 0.76rem;
+                }
         }
 
         .timer-paused-note {
@@ -585,9 +622,9 @@
             visibility: hidden;
         }
 
-        .timer-paused-note.show {
-            visibility: visible;
-        }
+            .timer-paused-note.show {
+                visibility: visible;
+            }
 
         .timer-btn-group {
             display: flex;
@@ -606,14 +643,30 @@
             transition: transform 0.1s, opacity 0.2s;
         }
 
-        .btn-timer-ctrl:active {
-            transform: scale(0.96);
+            .btn-timer-ctrl:active {
+                transform: scale(0.96);
+            }
+
+        .btn-start {
+            background-color: var(--primary-color);
+            color: white;
         }
 
-        .btn-start { background-color: var(--primary-color); color: white; }
-        .btn-pause { background-color: #f59e0b; color: white; }
-        .btn-reset { background-color: #64748b; color: white; }
-        .btn-fullscreen { background-color: rgba(255, 255, 255, 0.2); color: white; border: 1px solid rgba(255, 255, 255, 0.4); }
+        .btn-pause {
+            background-color: #f59e0b;
+            color: white;
+        }
+
+        .btn-reset {
+            background-color: #64748b;
+            color: white;
+        }
+
+        .btn-fullscreen {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
 
         /* 全画面表示用クラス */
         .fullscreen-mode {
@@ -622,6 +675,7 @@
             left: 0 !important;
             width: 100vw !important;
             height: 100vh !important;
+            height: 100dvh !important;
             z-index: 9999 !important;
             margin: 0 !important;
             border-radius: 0 !important;
@@ -632,19 +686,19 @@
             box-sizing: border-box !important;
         }
 
-        /* 勉強タイマー：全画面時の時間数字（2まわり小さめ）のみ変更 */
-        .fullscreen-mode .digital-timer-time {
-            font-size: min(15vw, 26vh);
-        }
+            /* 勉強タイマー：全画面時の時間数字（2まわり小さめ）のみ変更 */
+            .fullscreen-mode .digital-timer-time {
+                font-size: min(15vw, 26vh);
+            }
 
-        /* それ以外の元々の設定 */
-        .fullscreen-mode .clock-tab-time {
-            font-size: min(15vw, 28vh);
-        }
+            /* それ以外の元々の設定 */
+            .fullscreen-mode .clock-tab-time {
+                font-size: min(15vw, 28vh);
+            }
 
-        .fullscreen-mode .clock-tab-date {
-            font-size: min(5vw, 8vh);
-        }
+            .fullscreen-mode .clock-tab-date {
+                font-size: min(5vw, 8vh);
+            }
 
         .clock-tab-display {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -674,33 +728,102 @@
 
         /* スマホ向け独自レスポンシブデザイン (iPhone / Android) */
         @media screen and (max-width: 640px) {
-            body { padding: 12px 8px; }
-            .container { padding: 16px; border-radius: 12px; }
-            .header { flex-direction: column; align-items: flex-start; gap: 12px; margin-bottom: 20px; padding-bottom: 16px; }
-            h1 { font-size: 1.4rem; }
+            body {
+                padding: 12px 8px;
+            }
 
-            .clock-container { width: 100%; justify-content: space-between; box-sizing: border-box; padding: 8px 14px; }
-            .clock-date { font-size: 0.85rem; }
-            .clock-time { font-size: 1.15rem; }
+            .container {
+                padding: 16px;
+                border-radius: 12px;
+            }
 
-            .main-tabs { gap: 4px; padding: 4px; }
-            .tab-btn { padding: 8px 6px; font-size: 0.85rem; }
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+                margin-bottom: 20px;
+                padding-bottom: 16px;
+            }
 
-            .form-grid { padding: 16px; gap: 16px; }
-            .radio-group { flex-direction: column; align-items: flex-start; gap: 10px; }
-            .meal-item-row { flex-direction: column; align-items: flex-start; gap: 10px; }
+            h1 {
+                font-size: 1.4rem;
+            }
+
+            .clock-container {
+                width: 100%;
+                justify-content: space-between;
+                box-sizing: border-box;
+                padding: 8px 14px;
+            }
+
+            .clock-date {
+                font-size: 0.85rem;
+            }
+
+            .clock-time {
+                font-size: 1.15rem;
+            }
+
+            .main-tabs {
+                gap: 4px;
+                padding: 4px;
+            }
+
+            .tab-btn {
+                padding: 8px 6px;
+                font-size: 0.85rem;
+            }
+
+            .form-grid {
+                padding: 16px;
+                gap: 16px;
+            }
+
+            .radio-group {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .meal-item-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
 
             /* 数字を大きく見せるため、周りの余白を詰める */
-            .timer-card, .clock-tab-card { padding: 14px; }
-            .digital-display-box { padding: 20px 12px; }
-            .clock-tab-display { padding: 36px 10px; }
+            .timer-card, .clock-tab-card {
+                padding: 14px;
+            }
 
-            .digital-timer-time { font-size: 19vw; }
-            .clock-tab-time { font-size: 12.5vw; }
-            .clock-tab-date { font-size: 1.3rem; }
+            .digital-display-box {
+                padding: 20px 12px;
+            }
 
-            table, thead, tbody, th, td, tr { display: block; }
-            thead { display: none; }
+            .clock-tab-display {
+                padding: 36px 10px;
+            }
+
+            .digital-timer-time {
+                font-size: 19vw;
+            }
+
+            .clock-tab-time {
+                font-size: 12.5vw;
+            }
+
+            .clock-tab-date {
+                font-size: 1.3rem;
+            }
+
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            thead {
+                display: none;
+            }
+
             tr {
                 margin-bottom: 12px;
                 border: 1px solid var(--card-border);
@@ -719,990 +842,1045 @@
                 justify-content: space-between;
             }
 
-            td.checkbox-col {
-                width: auto;
-                justify-content: flex-start;
-                gap: 10px;
-                border-bottom: 1px dashed var(--card-border);
-                padding-bottom: 8px;
-                margin-bottom: 6px;
-                font-weight: bold;
-                font-size: 0.9rem;
+                td.checkbox-col {
+                    width: auto;
+                    justify-content: flex-start;
+                    gap: 10px;
+                    border-bottom: 1px dashed var(--card-border);
+                    padding-bottom: 8px;
+                    margin-bottom: 6px;
+                    font-weight: bold;
+                    font-size: 0.9rem;
+                }
+
+                    td.checkbox-col::after {
+                        content: "完了チェック";
+                        color: var(--text-muted);
+                    }
+
+                td:nth-child(2)::before {
+                    content: "セット:";
+                    font-weight: 700;
+                    color: var(--text-muted);
+                }
+
+                td:nth-child(3)::before {
+                    content: "区分:";
+                    font-weight: 700;
+                    color: var(--text-muted);
+                }
+
+                td:nth-child(4)::before {
+                    content: "時間帯:";
+                    font-weight: 700;
+                    color: var(--text-muted);
+                }
+
+                td:nth-child(5)::before {
+                    content: "時間配分:";
+                    font-weight: 700;
+                    color: var(--text-muted);
+                }
+
+            .table-input {
+                width: 70px;
+                padding: 6px;
             }
-
-            td.checkbox-col::after { content: "完了チェック"; color: var(--text-muted); }
-            td:nth-child(2)::before { content: "セット:"; font-weight: 700; color: var(--text-muted); }
-            td:nth-child(3)::before { content: "区分:"; font-weight: 700; color: var(--text-muted); }
-            td:nth-child(4)::before { content: "時間帯:"; font-weight: 700; color: var(--text-muted); }
-            td:nth-child(5)::before { content: "時間配分:"; font-weight: 700; color: var(--text-muted); }
-
-            .table-input { width: 70px; padding: 6px; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="header">
-        <h1>ポモドーロタイマー</h1>
-        <div class="clock-container">
-            <span class="clock-date" id="clock-date">----/--/-- (-)</span>
-            <span class="clock-time" id="clock-time">--:--:--</span>
+    <div class="container">
+        <div class="header">
+            <h1>ポモドーロタイマー</h1>
+            <div class="clock-container">
+                <span class="clock-date" id="clock-date">----/--/-- (-)</span>
+                <span class="clock-time" id="clock-time">--:--:--</span>
+            </div>
         </div>
-    </div>
 
-    <!-- メイン切り替えタブ -->
-    <div class="main-tabs">
-        <button type="button" class="tab-btn active" onclick="switchMainTab('table')">ポモドーロテーブル</button>
-        <button type="button" class="tab-btn" onclick="switchMainTab('timer')">タイマー</button>
-        <button type="button" class="tab-btn" onclick="switchMainTab('clock')">時計</button>
-    </div>
-    
-    <!-- 1. ポモドーロテーブル タブ -->
-    <div id="tab-table" class="tab-content active">
-        <form id="pomodoro-form" onsubmit="return false;">
-            <div class="form-grid">
-                <div class="form-group full-width">
-                    <div class="label-container">
-                        <label>基準時刻の設定</label>
-                        <span class="toast-message" id="toast-msg"></span>
+        <!-- メイン切り替えタブ -->
+        <div class="main-tabs">
+            <button type="button" class="tab-btn active" onclick="switchMainTab('table')">ポモドーロテーブル</button>
+            <button type="button" class="tab-btn" onclick="switchMainTab('timer')">タイマー</button>
+            <button type="button" class="tab-btn" onclick="switchMainTab('clock')">時計</button>
+        </div>
+
+        <!-- 1. ポモドーロテーブル タブ -->
+        <div id="tab-table" class="tab-content active">
+            <form id="pomodoro-form" onsubmit="return false;">
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <div class="label-container">
+                            <label>基準時刻の設定</label>
+                            <span class="toast-message" id="toast-msg"></span>
+                        </div>
+                        <div class="radio-group">
+                            <label><input type="radio" name="baseType" value="start" checked onchange="validateInputs()"> 開始時刻を基準にする</label>
+                            <label><input type="radio" name="baseType" value="end" onchange="validateInputs()"> 終了時刻を基準にする</label>
+                        </div>
                     </div>
-                    <div class="radio-group">
-                        <label><input type="radio" name="baseType" value="start" checked onchange="validateInputs()"> 開始時刻を基準にする</label>
-                        <label><input type="radio" name="baseType" value="end" onchange="validateInputs()"> 終了時刻を基準にする</label>
+
+                    <div class="form-group">
+                        <label for="startTime">開始時刻</label>
+                        <input type="time" id="startTime" onchange="validateInputs()" required>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label for="startTime">開始時刻</label>
-                    <input type="time" id="startTime" onchange="validateInputs()" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="endTime">終了時刻</label>
-                    <input type="time" id="endTime" onchange="validateInputs()" required>
-                </div>
-
-                <div class="form-group full-width">
-                    <label for="cycles">
-                        ローテーション数（セット数）
-                        <span class="label-hint" id="max-cycles-hint"></span>
-                    </label>
-                    <div class="cycles-input-wrapper">
-                        <input type="number" id="cycles" min="1" max="48" value="4" oninput="validateInputs()" required>
-                        <span class="error-hint" id="cycles-error"></span>
+                    <div class="form-group">
+                        <label for="endTime">終了時刻</label>
+                        <input type="time" id="endTime" onchange="validateInputs()" required>
                     </div>
-                </div>
 
-                <!-- ごはん休憩設定 -->
-                <div class="form-group full-width">
-                    <div class="meal-section-title">ごはん休憩の設定</div>
-                    <div class="meal-options-container">
-                        <div class="meal-item-row">
-                            <label class="meal-label-check">
-                                <input type="checkbox" id="meal-bf-check" onchange="toggleMealInputs('bf'); validateInputs();"> 朝食
-                            </label>
-                            <div class="meal-inputs" id="meal-bf-inputs" style="display: none;">
-                                <label>第 <input type="number" id="meal-bf-cycle" min="1" max="48" value="1" oninput="validateInputs()"> セット目</label>
-                                <label>時間 <input type="number" id="meal-bf-time" min="1" max="180" value="30" oninput="validateInputs()"> 分</label>
+                    <div class="form-group full-width">
+                        <label for="cycles">
+                            ローテーション数（セット数）
+                            <span class="label-hint" id="max-cycles-hint"></span>
+                        </label>
+                        <div class="cycles-input-wrapper">
+                            <input type="number" id="cycles" min="1" max="48" value="4" oninput="validateInputs()" required>
+                            <span class="error-hint" id="cycles-error"></span>
+                        </div>
+                    </div>
+
+                    <!-- ごはん休憩設定 -->
+                    <div class="form-group full-width">
+                        <div class="meal-section-title">ごはん休憩の設定</div>
+                        <div class="meal-options-container">
+                            <div class="meal-item-row">
+                                <label class="meal-label-check">
+                                    <input type="checkbox" id="meal-bf-check" onchange="toggleMealInputs('bf'); validateInputs();"> 朝食
+                                </label>
+                                <div class="meal-inputs" id="meal-bf-inputs" style="display: none;">
+                                    <label>第 <input type="number" id="meal-bf-cycle" min="1" max="48" value="1" oninput="validateInputs()"> セット目</label>
+                                    <label>時間 <input type="number" id="meal-bf-time" min="1" max="180" value="30" oninput="validateInputs()"> 分</label>
+                                </div>
+                            </div>
+
+                            <div class="meal-item-row">
+                                <label class="meal-label-check">
+                                    <input type="checkbox" id="meal-lunch-check" onchange="toggleMealInputs('lunch'); validateInputs();"> 昼食
+                                </label>
+                                <div class="meal-inputs" id="meal-lunch-inputs" style="display: none;">
+                                    <label>第 <input type="number" id="meal-lunch-cycle" min="1" max="48" value="2" oninput="validateInputs()"> セット目</label>
+                                    <label>時間 <input type="number" id="meal-lunch-time" min="1" max="180" value="45" oninput="validateInputs()"> 分</label>
+                                </div>
+                            </div>
+
+                            <div class="meal-item-row">
+                                <label class="meal-label-check">
+                                    <input type="checkbox" id="meal-dinner-check" onchange="toggleMealInputs('dinner'); validateInputs();"> 夕食
+                                </label>
+                                <div class="meal-inputs" id="meal-dinner-inputs" style="display: none;">
+                                    <label>第 <input type="number" id="meal-dinner-cycle" min="1" max="48" value="4" oninput="validateInputs()"> セット目</label>
+                                    <label>時間 <input type="number" id="meal-dinner-time" min="1" max="180" value="45" oninput="validateInputs()"> 分</label>
+                                </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="meal-item-row">
-                            <label class="meal-label-check">
-                                <input type="checkbox" id="meal-lunch-check" onchange="toggleMealInputs('lunch'); validateInputs();"> 昼食
-                            </label>
-                            <div class="meal-inputs" id="meal-lunch-inputs" style="display: none;">
-                                <label>第 <input type="number" id="meal-lunch-cycle" min="1" max="48" value="2" oninput="validateInputs()"> セット目</label>
-                                <label>時間 <input type="number" id="meal-lunch-time" min="1" max="180" value="45" oninput="validateInputs()"> 分</label>
+                    <div class="form-group full-width">
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" id="excludeLastBreak" checked onchange="validateInputs()"> 最後の休憩は用意しない</label>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" class="btn-generate" id="generate-btn" onclick="generateSchedule()">スケジュール作成</button>
+            </form>
+
+            <div class="result-area" id="result" style="display: none;">
+                <div class="table-error-container">
+                    <span class="error-hint" id="table-error"></span>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="checkbox-col">完了</th>
+                                <th>セット</th>
+                                <th>区分</th>
+                                <th>時間帯</th>
+                                <th>時間配分（分）</th>
+                            </tr>
+                        </thead>
+                        <tbody id="schedule-body">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. タイマー タブ -->
+        <div id="tab-timer" class="tab-content">
+            <div class="timer-card">
+                <!-- スライダー設定 -->
+                <div class="slider-group">
+                    <div class="slider-header">
+                        <label for="custom-work-range">勉強時間（1〜180分）</label>
+                        <span class="slider-val" id="custom-work-val">25分</span>
+                    </div>
+                    <input type="range" id="custom-work-range" min="1" max="180" value="25" oninput="onCustomSliderChange()">
+                </div>
+
+                <div class="slider-group">
+                    <div class="slider-header">
+                        <label for="custom-break-range">休憩時間（1〜60分）</label>
+                        <span class="slider-val" id="custom-break-val">5分</span>
+                    </div>
+                    <input type="range" id="custom-break-range" min="1" max="60" value="5" oninput="onCustomSliderChange()">
+                </div>
+
+                <div class="slider-group">
+                    <div class="slider-header">
+                        <label for="custom-lunch-range">ご飯時間（1〜120分）</label>
+                        <span class="slider-val" id="custom-lunch-val">60分</span>
+                    </div>
+                    <input type="range" id="custom-lunch-range" min="1" max="120" value="60" oninput="onCustomSliderChange()">
+                </div>
+
+                <div class="checkbox-group" style="margin-bottom: 20px; flex-direction: column; align-items: flex-start; gap: 10px;">
+                    <label><input type="checkbox" id="custom-auto-work-to-break" checked> 勉強が終わったら、自動で休憩を始める</label>
+                    <label><input type="checkbox" id="custom-auto-break-to-work" checked> 休憩が終わったら、自動で勉強を始める</label>
+                </div>
+
+                <!-- 終了時の通知・サウンド設定 -->
+                <details class="sound-settings">
+                    <summary>終了時の通知・サウンド設定</summary>
+                    <div class="sound-settings-body">
+                        <div class="sound-row">
+                            <span class="sound-row-label">勉強終了</span>
+                            <select id="sound-work" onchange="onSoundSettingChange()"></select>
+                            <button type="button" class="btn-preview" onclick="previewSound('work')">試聴</button>
+                        </div>
+                        <div class="sound-row">
+                            <span class="sound-row-label">休憩終了</span>
+                            <select id="sound-break" onchange="onSoundSettingChange()"></select>
+                            <button type="button" class="btn-preview" onclick="previewSound('break')">試聴</button>
+                        </div>
+                        <div class="sound-row">
+                            <span class="sound-row-label">ご飯終了</span>
+                            <select id="sound-lunch" onchange="onSoundSettingChange()"></select>
+                            <button type="button" class="btn-preview" onclick="previewSound('lunch')">試聴</button>
+                        </div>
+
+                        <div class="slider-group" style="margin-bottom: 0;">
+                            <div class="slider-header">
+                                <label for="sound-volume">音量</label>
+                                <span class="slider-val" id="sound-volume-val">70%</span>
                             </div>
+                            <input type="range" id="sound-volume" min="0" max="100" value="70" oninput="onSoundSettingChange()">
                         </div>
 
-                        <div class="meal-item-row">
-                            <label class="meal-label-check">
-                                <input type="checkbox" id="meal-dinner-check" onchange="toggleMealInputs('dinner'); validateInputs();"> 夕食
-                            </label>
-                            <div class="meal-inputs" id="meal-dinner-inputs" style="display: none;">
-                                <label>第 <input type="number" id="meal-dinner-cycle" min="1" max="48" value="4" oninput="validateInputs()"> セット目</label>
-                                <label>時間 <input type="number" id="meal-dinner-time" min="1" max="180" value="45" oninput="validateInputs()"> 分</label>
-                            </div>
-                        </div>
+                        <label><input type="checkbox" id="notify-enable" onchange="onNotifyToggle()"> 終了時に通知を出す</label>
+                        <div class="sound-note" id="notify-note"></div>
+                    </div>
+                </details>
+
+                <!-- デジタルタイマー本体 -->
+                <div class="digital-display-box" id="timer-display-box">
+                    <div class="timer-status-badge" id="timer-mode-badge">勉強タイマー</div>
+                    <div class="timer-paused-note" id="timer-paused-note">一時停止中</div>
+                    <div class="digital-timer-time" id="custom-timer-clock">25:00</div>
+
+                    <div class="timer-ctrl-grid">
+                        <button type="button" class="btn-timer-ctrl btn-start span-2" onclick="startCustomTimer('work')">勉強スタート</button>
+                        <button type="button" class="btn-timer-ctrl btn-start span-2" style="background-color: #64748b;" onclick="startCustomTimer('break')">休憩スタート</button>
+                        <button type="button" class="btn-timer-ctrl btn-start span-2" style="background-color: #d97706;" onclick="startCustomTimer('lunch')">ご飯スタート</button>
+                        <button type="button" class="btn-timer-ctrl btn-pause btn-main span-3" id="timer-pause-btn" onclick="togglePauseCustomTimer()">一時停止</button>
+                        <button type="button" class="btn-timer-ctrl btn-reset btn-main span-3" onclick="resetCustomTimer()">リセット</button>
+                        <button type="button" class="btn-timer-ctrl btn-fullscreen span-6" id="timer-fs-btn" onclick="toggleFullscreen('timer-display-box', 'timer-fs-btn')">全画面表示</button>
                     </div>
                 </div>
-
-                <div class="form-group full-width">
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" id="includeLastBreak" checked onchange="validateInputs()"> 最後の休憩を用意する</label>
-                    </div>
-                </div>
-            </div>
-
-            <button type="button" class="btn-generate" id="generate-btn" onclick="generateSchedule()">スケジュール作成</button>
-        </form>
-
-        <div class="result-area" id="result" style="display: none;">
-            <div class="table-error-container">
-                <span class="error-hint" id="table-error"></span>
-            </div>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th class="checkbox-col">完了</th>
-                            <th>セット</th>
-                            <th>区分</th>
-                            <th>時間帯</th>
-                            <th>時間配分（分）</th>
-                        </tr>
-                    </thead>
-                    <tbody id="schedule-body">
-                    </tbody>
-                </table>
             </div>
         </div>
-    </div>
 
-    <!-- 2. タイマー タブ -->
-    <div id="tab-timer" class="tab-content">
-        <div class="timer-card">
-            <!-- スライダー設定 -->
-            <div class="slider-group">
-                <div class="slider-header">
-                    <label for="custom-work-range">勉強時間（1〜180分）</label>
-                    <span class="slider-val" id="custom-work-val">25分</span>
-                </div>
-                <input type="range" id="custom-work-range" min="1" max="180" value="25" oninput="onCustomSliderChange()">
-            </div>
-
-            <div class="slider-group">
-                <div class="slider-header">
-                    <label for="custom-break-range">休憩時間（1〜30分）</label>
-                    <span class="slider-val" id="custom-break-val">5分</span>
-                </div>
-                <input type="range" id="custom-break-range" min="1" max="30" value="5" oninput="onCustomSliderChange()">
-            </div>
-
-            <div class="slider-group">
-                <div class="slider-header">
-                    <label for="custom-lunch-range">ご飯時間（1〜120分）</label>
-                    <span class="slider-val" id="custom-lunch-val">45分</span>
-                </div>
-                <input type="range" id="custom-lunch-range" min="1" max="120" value="45" oninput="onCustomSliderChange()">
-            </div>
-
-            <div class="checkbox-group" style="margin-bottom: 20px; flex-direction: column; align-items: flex-start; gap: 10px;">
-                <label><input type="checkbox" id="custom-auto-work-to-break" checked> 勉強が終わったら、自動で休憩を始める</label>
-                <label><input type="checkbox" id="custom-auto-break-to-work" checked> 休憩が終わったら、自動で勉強を始める</label>
-            </div>
-
-            <!-- 終了時の通知・サウンド設定 -->
-            <details class="sound-settings">
-                <summary>終了時の通知・サウンド設定</summary>
-                <div class="sound-settings-body">
-                    <div class="sound-row">
-                        <span class="sound-row-label">勉強終了</span>
-                        <select id="sound-work" onchange="onSoundSettingChange()"></select>
-                        <button type="button" class="btn-preview" onclick="previewSound('work')">試聴</button>
+        <!-- 3. 時計 タブ -->
+        <div id="tab-clock" class="tab-content">
+            <div class="clock-tab-card">
+                <div class="clock-tab-display" id="clock-tab-display-box">
+                    <div class="clock-tab-date" id="clock-tab-date">----/--/-- (-)</div>
+                    <div class="clock-tab-time" id="clock-tab-time">--:--:--</div>
+                    <div class="timer-btn-group">
+                        <button type="button" class="btn-timer-ctrl btn-fullscreen" id="clock-fs-btn" onclick="toggleFullscreen('clock-tab-display-box', 'clock-fs-btn')">全画面表示</button>
                     </div>
-                    <div class="sound-row">
-                        <span class="sound-row-label">休憩終了</span>
-                        <select id="sound-break" onchange="onSoundSettingChange()"></select>
-                        <button type="button" class="btn-preview" onclick="previewSound('break')">試聴</button>
-                    </div>
-                    <div class="sound-row">
-                        <span class="sound-row-label">ご飯終了</span>
-                        <select id="sound-lunch" onchange="onSoundSettingChange()"></select>
-                        <button type="button" class="btn-preview" onclick="previewSound('lunch')">試聴</button>
-                    </div>
-
-                    <div class="slider-group" style="margin-bottom: 0;">
-                        <div class="slider-header">
-                            <label for="sound-volume">音量</label>
-                            <span class="slider-val" id="sound-volume-val">70%</span>
-                        </div>
-                        <input type="range" id="sound-volume" min="0" max="100" value="70" oninput="onSoundSettingChange()">
-                    </div>
-
-                    <label><input type="checkbox" id="notify-enable" onchange="onNotifyToggle()"> 終了時に通知を出す</label>
-                    <div class="sound-note" id="notify-note"></div>
-                </div>
-            </details>
-
-            <!-- デジタルタイマー本体 -->
-            <div class="digital-display-box" id="timer-display-box">
-                <div class="timer-status-badge" id="timer-mode-badge">勉強タイマー</div>
-                <div class="timer-paused-note" id="timer-paused-note">一時停止中</div>
-                <div class="digital-timer-time" id="custom-timer-clock">25:00</div>
-
-                <div class="timer-ctrl-grid">
-                    <button type="button" class="btn-timer-ctrl btn-start span-2" onclick="startCustomTimer('work')">勉強スタート</button>
-                    <button type="button" class="btn-timer-ctrl btn-start span-2" style="background-color: #64748b;" onclick="startCustomTimer('break')">休憩スタート</button>
-                    <button type="button" class="btn-timer-ctrl btn-start span-2" style="background-color: #d97706;" onclick="startCustomTimer('lunch')">ご飯スタート</button>
-                    <button type="button" class="btn-timer-ctrl btn-pause btn-main span-3" id="timer-pause-btn" onclick="togglePauseCustomTimer()">一時停止</button>
-                    <button type="button" class="btn-timer-ctrl btn-reset btn-main span-3" onclick="resetCustomTimer()">リセット</button>
-                    <button type="button" class="btn-timer-ctrl btn-fullscreen span-6" id="timer-fs-btn" onclick="toggleFullscreen('timer-display-box', 'timer-fs-btn')">全画面表示</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 3. 時計 タブ -->
-    <div id="tab-clock" class="tab-content">
-        <div class="clock-tab-card">
-            <div class="clock-tab-display" id="clock-tab-display-box">
-                <div class="clock-tab-date" id="clock-tab-date">----/--/-- (-)</div>
-                <div class="clock-tab-time" id="clock-tab-time">--:--:--</div>
-                <div class="timer-btn-group">
-                    <button type="button" class="btn-timer-ctrl btn-fullscreen" id="clock-fs-btn" onclick="toggleFullscreen('clock-tab-display-box', 'clock-fs-btn')">全画面表示</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    <script>
+        let sessionDurations = [];
+        let toastTimeout = null;
+        let tableMsgTimeout = null;
+        let timeOffset = 0;
 
-<script>
-    let sessionDurations = [];
-    let toastTimeout = null;
-    let tableMsgTimeout = null;
-    let timeOffset = 0;
+        // --- メインナビゲーションタブ切り替え ---
+        function switchMainTab(tabName) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
 
-    // --- メインナビゲーションタブ切り替え ---
-    function switchMainTab(tabName) {
-        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-
-        if (tabName === 'table') {
-            document.querySelectorAll('.tab-btn')[0].classList.add('active');
-            document.getElementById('tab-table').classList.add('active');
-        } else if (tabName === 'timer') {
-            document.querySelectorAll('.tab-btn')[1].classList.add('active');
-            document.getElementById('tab-timer').classList.add('active');
-        } else if (tabName === 'clock') {
-            document.querySelectorAll('.tab-btn')[2].classList.add('active');
-            document.getElementById('tab-clock').classList.add('active');
-        }
-    }
-
-    // ごはん休憩入力欄の開閉表示
-    function toggleMealInputs(type) {
-        const check = document.getElementById(`meal-${type}-check`).checked;
-        const inputsGroup = document.getElementById(`meal-${type}-inputs`);
-        inputsGroup.style.display = check ? 'flex' : 'none';
-    }
-
-    // timeapi.io から時間を取得
-    async function fetchExternalTime() {
-        try {
-            const response = await fetch('https://timeapi.io/api/time/current/zone?timeZone=Asia/Tokyo');
-            if (!response.ok) return;
-            const data = await response.json();
-            
-            const apiDate = new Date(data.dateTime);
-            timeOffset = apiDate.getTime() - Date.now();
-        } catch (e) {
-            // エラー時はローカル時計を使用継続
-        }
-    }
-
-    // トーストメッセージ表示機能
-    function showToast(text) {
-        const toastEl = document.getElementById('toast-msg');
-        if (toastTimeout) clearTimeout(toastTimeout);
-        toastEl.textContent = text;
-        toastEl.classList.add('show');
-        toastTimeout = setTimeout(() => toastEl.classList.remove('show'), 2000);
-    }
-
-    // 表の上部にメッセージを表示して2秒後フェードアウト
-    function showTableMessage(text) {
-        const tableErrorEl = document.getElementById('table-error');
-        if (tableMsgTimeout) clearTimeout(tableMsgTimeout);
-        tableErrorEl.textContent = text;
-        tableErrorEl.classList.add('show');
-        tableMsgTimeout = setTimeout(() => tableErrorEl.classList.remove('show'), 2000);
-    }
-
-    // 時計機能（API補正時間）
-    function updateClock() {
-        const now = new Date(Date.now() + timeOffset);
-        const days = ['日', '月', '火', '水', '木', '金', '土'];
-        const year = now.getFullYear();
-        const month = String(now.getMonth() + 1).padStart(2, '0');
-        const date = String(now.getDate()).padStart(2, '0');
-        const day = days[now.getDay()];
-        const hours = String(now.getHours()).padStart(2, '0');
-        const minutes = String(now.getMinutes()).padStart(2, '0');
-        const seconds = String(now.getSeconds()).padStart(2, '0');
-
-        const dateStr = `${year}/${month}/${date}(${day})`;
-        const timeStr = `${hours}:${minutes}:${seconds}`;
-
-        document.getElementById('clock-date').textContent = dateStr;
-        document.getElementById('clock-time').textContent = timeStr;
-
-        // 時計タブ用の表示更新
-        document.getElementById('clock-tab-date').textContent = dateStr;
-        document.getElementById('clock-tab-time').textContent = timeStr;
-    }
-
-    function formatTime(date) {
-        const hours = String(date.getHours()).padStart(2, '0');
-        const minutes = String(date.getMinutes()).padStart(2, '0');
-        return `${hours}:${minutes}`;
-    }
-
-    // 利用可能な総分数を計算
-    function getAvailableMinutes() {
-        const startVal = document.getElementById('startTime').value;
-        const endVal = document.getElementById('endTime').value;
-        if (!startVal || !endVal) return 0;
-
-        const [startH, startM] = startVal.split(':').map(Number);
-        const [endH, endM] = endVal.split(':').map(Number);
-
-        let startMin = startH * 60 + startM;
-        let endMin = endH * 60 + endM;
-
-        if (endMin <= startMin) endMin += 24 * 60;
-        return endMin - startMin;
-    }
-
-    // ごはん休憩の構成情報を取得
-    function getMealConfigs() {
-        const meals = [
-            { id: 'bf', name: '朝食' },
-            { id: 'lunch', name: '昼食' },
-            { id: 'dinner', name: '夕食' }
-        ];
-
-        let configs = [];
-        meals.forEach(m => {
-            const check = document.getElementById(`meal-${m.id}-check`).checked;
-            if (check) {
-                const cycle = parseInt(document.getElementById(`meal-${m.id}-cycle`).value, 10) || 1;
-                const duration = parseInt(document.getElementById(`meal-${m.id}-time`).value, 10) || 30;
-                configs.push({ type: m.name, cycle: cycle, duration: duration });
-            }
-        });
-        return configs;
-    }
-
-    // 最大可能ローテーション数の算出および検証
-    function validateInputs() {
-        const cyclesInput = document.getElementById('cycles');
-        const cyclesVal = parseInt(cyclesInput.value, 10);
-        const includeLastBreak = document.getElementById('includeLastBreak').checked;
-        const hintEl = document.getElementById('max-cycles-hint');
-        const errorEl = document.getElementById('cycles-error');
-        const btn = document.getElementById('generate-btn');
-
-        const diffMinutes = getAvailableMinutes();
-        if (diffMinutes <= 0) {
-            hintEl.textContent = '';
-            errorEl.textContent = '';
-            errorEl.classList.remove('show');
-            btn.disabled = false;
-            return;
-        }
-
-        const meals = getMealConfigs();
-        let invalidMealCycle = false;
-        if (!isNaN(cyclesVal) && cyclesVal > 0) {
-            invalidMealCycle = meals.some(m => m.cycle > cyclesVal);
-        }
-
-        const netMealExtraMinutes = meals.reduce((sum, m) => sum + (m.duration - 5), 0);
-        const remainingMinutes = diffMinutes - netMealExtraMinutes;
-        const effectiveMinutes = includeLastBreak ? remainingMinutes : remainingMinutes + 5;
-        const maxCycles = Math.floor(effectiveMinutes / 30);
-
-        hintEl.textContent = `（最大: ${maxCycles < 0 ? 0 : maxCycles}セット可能）`;
-
-        if (!isNaN(cyclesVal) && (cyclesVal > maxCycles || remainingMinutes < 0 || invalidMealCycle)) {
-            errorEl.textContent = '指定された時間内では、そのルーティーン数は指定できません';
-            errorEl.classList.add('show');
-            btn.disabled = true;
-        } else {
-            errorEl.textContent = '';
-            errorEl.classList.remove('show');
-            btn.disabled = false;
-        }
-    }
-
-    // スケジュール作成ボタンクリック時のみ実行
-    function generateSchedule() {
-        const cycles = parseInt(document.getElementById('cycles').value, 10);
-        const includeLastBreak = document.getElementById('includeLastBreak').checked;
-        if (isNaN(cycles) || cycles < 1) return;
-
-        const tableErrorEl = document.getElementById('table-error');
-        tableErrorEl.textContent = '';
-        tableErrorEl.classList.remove('show');
-
-        const mealConfigs = getMealConfigs();
-        sessionDurations = [];
-
-        for (let i = 1; i <= cycles; i++) {
-            sessionDurations.push({ cycle: i, type: '作業', duration: 25, isWork: true });
-
-            const mealsForCycle = mealConfigs.filter(m => m.cycle === i);
-
-            if (mealsForCycle.length > 0) {
-                mealsForCycle.forEach(m => {
-                    sessionDurations.push({ cycle: i, type: m.type, duration: m.duration, isMeal: true });
-                });
-            } else if (i < cycles || includeLastBreak) {
-                sessionDurations.push({ cycle: i, type: '休憩', duration: 5, isWork: false });
+            if (tabName === 'table') {
+                document.querySelectorAll('.tab-btn')[0].classList.add('active');
+                document.getElementById('tab-table').classList.add('active');
+            } else if (tabName === 'timer') {
+                document.querySelectorAll('.tab-btn')[1].classList.add('active');
+                document.getElementById('tab-timer').classList.add('active');
+            } else if (tabName === 'clock') {
+                document.querySelectorAll('.tab-btn')[2].classList.add('active');
+                document.getElementById('tab-clock').classList.add('active');
             }
         }
 
-        renderTimeline();
-        document.getElementById('result').style.display = 'block';
-        showToast('表を作成しました！');
-    }
-
-    // テーブル内時間変更時の再計算
-    function onDurationChange(index, inputEl) {
-        const val = parseInt(inputEl.value, 10);
-
-        if (isNaN(val) || val <= 0) {
-            inputEl.value = sessionDurations[index].duration;
-            return;
+        // ごはん休憩入力欄の開閉表示
+        function toggleMealInputs(type) {
+            const check = document.getElementById(`meal-${type}-check`).checked;
+            const inputsGroup = document.getElementById(`meal-${type}-inputs`);
+            inputsGroup.style.display = check ? 'flex' : 'none';
         }
 
-        const tempDurations = JSON.parse(JSON.stringify(sessionDurations));
-        tempDurations[index].duration = val;
-        const totalDuration = tempDurations.reduce((sum, d) => sum + d.duration, 0);
+        // timeapi.io から時間を取得
+        async function fetchExternalTime() {
+            try {
+                const response = await fetch('https://timeapi.io/api/time/current/zone?timeZone=Asia/Tokyo');
+                if (!response.ok) return;
+                const data = await response.json();
 
-        const availableMinutes = getAvailableMinutes();
-
-        if (availableMinutes > 0 && totalDuration > availableMinutes) {
-            inputEl.value = sessionDurations[index].duration;
-            showTableMessage('指定された時間内では、そのルーティーン数は指定できません');
-        } else {
-            sessionDurations[index].duration = val;
-            renderTimeline();
-            showTableMessage('表を更新しました！');
-            showToast('表を更新しました！');
+                const apiDate = new Date(data.dateTime);
+                if (isNaN(apiDate.getTime())) return; // 日時が読めない場合は補正しない
+                timeOffset = apiDate.getTime() - Date.now();
+            } catch (e) {
+                // エラー時はローカル時計を使用継続
+            }
         }
-    }
 
-    // チェックボックス切り替え
-    function toggleComplete(checkbox) {
-        const row = checkbox.closest('tr');
-        if (checkbox.checked) {
-            row.classList.add('completed');
-        } else {
-            row.classList.remove('completed');
+        // トーストメッセージ表示機能
+        function showToast(text) {
+            const toastEl = document.getElementById('toast-msg');
+            if (toastTimeout) clearTimeout(toastTimeout);
+            toastEl.textContent = text;
+            toastEl.classList.add('show');
+            toastTimeout = setTimeout(() => toastEl.classList.remove('show'), 2000);
         }
-    }
 
-    // タイムライン描画
-    function renderTimeline() {
-        const baseType = document.querySelector('input[name="baseType"]:checked').value;
-        const startTimeVal = document.getElementById('startTime').value;
-        const endTimeVal = document.getElementById('endTime').value;
-        const tbody = document.getElementById('schedule-body');
+        // 表の上部にメッセージを表示して2秒後フェードアウト
+        function showTableMessage(text) {
+            const tableErrorEl = document.getElementById('table-error');
+            if (tableMsgTimeout) clearTimeout(tableMsgTimeout);
+            tableErrorEl.textContent = text;
+            tableErrorEl.classList.add('show');
+            tableMsgTimeout = setTimeout(() => tableErrorEl.classList.remove('show'), 2000);
+        }
 
-        const checkedStates = Array.from(tbody.querySelectorAll('.row-check')).map(cb => cb.checked);
-        tbody.innerHTML = '';
+        // 時計機能（API補正時間）
+        function updateClock() {
+            const now = new Date(Date.now() + timeOffset);
+            const days = ['日', '月', '火', '水', '木', '金', '土'];
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const date = String(now.getDate()).padStart(2, '0');
+            const day = days[now.getDay()];
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
 
-        if (!startTimeVal || !endTimeVal) return;
+            const dateStr = `year/{month}/date({day})`;
+            const timeStr = `hours:{minutes}:${seconds}`;
 
-        let timeline = [];
+            document.getElementById('clock-date').textContent = dateStr;
+            document.getElementById('clock-time').textContent = timeStr;
 
-        if (baseType === 'start') {
-            let [hours, minutes] = startTimeVal.split(':').map(Number);
-            let currentTime = new Date();
-            currentTime.setHours(hours, minutes, 0, 0);
+            // 時計タブ用の表示更新
+            document.getElementById('clock-tab-date').textContent = dateStr;
+            document.getElementById('clock-tab-time').textContent = timeStr;
+        }
 
-            sessionDurations.forEach((item, idx) => {
-                let start = new Date(currentTime);
-                currentTime.setMinutes(currentTime.getMinutes() + item.duration);
-                let end = new Date(currentTime);
+        function formatTime(date) {
+            const hours = String(date.getHours()).padStart(2, '0');
+            const minutes = String(date.getMinutes()).padStart(2, '0');
+            return `hours:{minutes}`;
+        }
 
-                timeline.push({
-                    ...item,
-                    start: formatTime(start),
-                    end: formatTime(end),
-                    durationIndex: idx
-                });
+        // 利用可能な総分数を計算
+        function getAvailableMinutes() {
+            const startVal = document.getElementById('startTime').value;
+            const endVal = document.getElementById('endTime').value;
+            if (!startVal || !endVal) return 0;
+
+            const [startH, startM] = startVal.split(':').map(Number);
+            const [endH, endM] = endVal.split(':').map(Number);
+
+            let startMin = startH * 60 + startM;
+            let endMin = endH * 60 + endM;
+
+            if (endMin <= startMin) endMin += 24 * 60;
+            return endMin - startMin;
+        }
+
+        // ごはん休憩の構成情報を取得
+        function getMealConfigs() {
+            const meals = [
+                { id: 'bf', name: '朝食' },
+                { id: 'lunch', name: '昼食' },
+                { id: 'dinner', name: '夕食' }
+            ];
+
+            let configs = [];
+            meals.forEach(m => {
+                const check = document.getElementById(`meal-${m.id}-check`).checked;
+                if (check) {
+                    const cycle = parseInt(document.getElementById(`meal-${m.id}-cycle`).value, 10) || 1;
+                    const duration = parseInt(document.getElementById(`meal-${m.id}-time`).value, 10) || 30;
+                    configs.push({ type: m.name, cycle: cycle, duration: duration });
+                }
             });
-        } else {
-            let [hours, minutes] = endTimeVal.split(':').map(Number);
-            let currentTime = new Date();
-            currentTime.setHours(hours, minutes, 0, 0);
+            return configs;
+        }
 
-            for (let i = sessionDurations.length - 1; i >= 0; i--) {
-                const item = sessionDurations[i];
-                let end = new Date(currentTime);
-                currentTime.setMinutes(currentTime.getMinutes() - item.duration);
-                let start = new Date(currentTime);
+        // 最大可能ローテーション数の算出および検証
+        function validateInputs() {
+            const cyclesInput = document.getElementById('cycles');
+            const cyclesVal = parseInt(cyclesInput.value, 10);
+            const includeLastBreak = !document.getElementById('excludeLastBreak').checked;
+            const hintEl = document.getElementById('max-cycles-hint');
+            const errorEl = document.getElementById('cycles-error');
+            const btn = document.getElementById('generate-btn');
 
-                timeline.unshift({
-                    ...item,
-                    start: formatTime(start),
-                    end: formatTime(end),
-                    durationIndex: i
+            const diffMinutes = getAvailableMinutes();
+            if (diffMinutes <= 0) {
+                hintEl.textContent = '';
+                errorEl.textContent = '';
+                errorEl.classList.remove('show');
+                btn.disabled = false;
+                return;
+            }
+
+            const meals = getMealConfigs();
+
+            // 実際に作られる表と同じルールで合計時間を数える（ご飯があるセットは休憩の代わりにご飯が入る）
+            const totalFor = (cycles) => {
+                let total = 0;
+                for (let i = 1; i <= cycles; i++) {
+                    total += 25;
+                    const mealsHere = meals.filter(m => m.cycle === i);
+                    if (mealsHere.length > 0) {
+                        total += mealsHere.reduce((sum, m) => sum + m.duration, 0);
+                    } else if (i < cycles || includeLastBreak) {
+                        total += 5;
+                    }
+                }
+                return total;
+            };
+            // 指定したセット数で成立するか（ご飯のセット番号が範囲内で、時間内に収まるか）
+            const isFeasible = (cycles) =>
+                cycles >= 1 && meals.every(m => m.cycle <= cycles) && totalFor(cycles) <= diffMinutes;
+
+            let maxCycles = 0;
+            for (let c = 48; c >= 1; c--) {
+                if (isFeasible(c)) { maxCycles = c; break; }
+            }
+
+            hintEl.textContent = `（最大: ${maxCycles}セット可能）`;
+
+            if (!isNaN(cyclesVal) && (cyclesVal > maxCycles || !isFeasible(cyclesVal))) {
+                errorEl.textContent = '指定された時間内では、そのルーティーン数は指定できません';
+                errorEl.classList.add('show');
+                btn.disabled = true;
+            } else {
+                errorEl.textContent = '';
+                errorEl.classList.remove('show');
+                btn.disabled = false;
+            }
+        }
+
+        // スケジュール作成ボタンクリック時のみ実行
+        function generateSchedule() {
+            const cycles = parseInt(document.getElementById('cycles').value, 10);
+            const includeLastBreak = !document.getElementById('excludeLastBreak').checked;
+            if (isNaN(cycles) || cycles < 1) return;
+
+            const tableErrorEl = document.getElementById('table-error');
+            tableErrorEl.textContent = '';
+            tableErrorEl.classList.remove('show');
+
+            const mealConfigs = getMealConfigs();
+            sessionDurations = [];
+
+            for (let i = 1; i <= cycles; i++) {
+                sessionDurations.push({ cycle: i, type: '作業', duration: 25, isWork: true });
+
+                const mealsForCycle = mealConfigs.filter(m => m.cycle === i);
+
+                if (mealsForCycle.length > 0) {
+                    mealsForCycle.forEach(m => {
+                        sessionDurations.push({ cycle: i, type: m.type, duration: m.duration, isMeal: true });
+                    });
+                } else if (i < cycles || includeLastBreak) {
+                    sessionDurations.push({ cycle: i, type: '休憩', duration: 5, isWork: false });
+                }
+            }
+
+            renderTimeline();
+            document.getElementById('result').style.display = 'block';
+            showToast('表を作成しました！');
+        }
+
+        // テーブル内時間変更時の再計算
+        function onDurationChange(index, inputEl) {
+            const val = parseInt(inputEl.value, 10);
+
+            if (isNaN(val) || val <= 0) {
+                inputEl.value = sessionDurations[index].duration;
+                return;
+            }
+
+            const tempDurations = JSON.parse(JSON.stringify(sessionDurations));
+            tempDurations[index].duration = val;
+            const totalDuration = tempDurations.reduce((sum, d) => sum + d.duration, 0);
+
+            const availableMinutes = getAvailableMinutes();
+
+            if (availableMinutes > 0 && totalDuration > availableMinutes) {
+                inputEl.value = sessionDurations[index].duration;
+                showTableMessage('その時間での更新はできません');
+            } else {
+                sessionDurations[index].duration = val;
+                renderTimeline();
+                showTableMessage('表を更新しました！');
+                showToast('表を更新しました！');
+            }
+        }
+
+        // チェックボックス切り替え
+        function toggleComplete(checkbox) {
+            const row = checkbox.closest('tr');
+            if (checkbox.checked) {
+                row.classList.add('completed');
+            } else {
+                row.classList.remove('completed');
+            }
+        }
+
+        // タイムライン描画
+        function renderTimeline() {
+            const baseType = document.querySelector('input[name="baseType"]:checked').value;
+            const startTimeVal = document.getElementById('startTime').value;
+            const endTimeVal = document.getElementById('endTime').value;
+            const tbody = document.getElementById('schedule-body');
+
+            const checkedStates = Array.from(tbody.querySelectorAll('.row-check')).map(cb => cb.checked);
+            tbody.innerHTML = '';
+
+            if (!startTimeVal || !endTimeVal) return;
+
+            let timeline = [];
+
+            if (baseType === 'start') {
+                let [hours, minutes] = startTimeVal.split(':').map(Number);
+                let currentTime = new Date();
+                currentTime.setHours(hours, minutes, 0, 0);
+
+                sessionDurations.forEach((item, idx) => {
+                    let start = new Date(currentTime);
+                    currentTime.setMinutes(currentTime.getMinutes() + item.duration);
+                    let end = new Date(currentTime);
+
+                    timeline.push({
+                        ...item,
+                        start: formatTime(start),
+                        end: formatTime(end),
+                        durationIndex: idx
+                    });
                 });
+            } else {
+                let [hours, minutes] = endTimeVal.split(':').map(Number);
+                let currentTime = new Date();
+                currentTime.setHours(hours, minutes, 0, 0);
+
+                for (let i = sessionDurations.length - 1; i >= 0; i--) {
+                    const item = sessionDurations[i];
+                    let end = new Date(currentTime);
+                    currentTime.setMinutes(currentTime.getMinutes() - item.duration);
+                    let start = new Date(currentTime);
+
+                    timeline.unshift({
+                        ...item,
+                        start: formatTime(start),
+                        end: formatTime(end),
+                        durationIndex: i
+                    });
+                }
+            }
+
+            timeline.forEach((item, index) => {
+                const tr = document.createElement('tr');
+
+                let rowClass = 'work';
+                let badgeClass = 'badge-work';
+
+                if (item.isMeal) {
+                    rowClass = 'meal';
+                    badgeClass = 'badge-meal';
+                } else if (!item.isWork) {
+                    rowClass = 'break';
+                    badgeClass = 'badge-break';
+                }
+
+                tr.className = rowClass;
+
+                const isChecked = checkedStates[index] || false;
+                if (isChecked) tr.classList.add('completed');
+
+                tr.innerHTML = `
+                    <td class="checkbox-col">
+                        <input type="checkbox" class="row-check" ${isChecked ? 'checked' : ''} onchange="toggleComplete(this)">
+                    </td>
+                    <td>第${item.cycle}セット</td>
+                    <td><span class="badge badgeClass">{item.type}</span></td>
+                    <td>${item.start} ～ ${item.end}</td>
+                    <td>
+                        <span><input type="number" class="table-input" value="${item.duration}" min="1" max="180"
+                               onchange="onDurationChange(${item.durationIndex}, this)"> 分</span>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // ----------------------------------
+        // 独立動作の自由タイマー機能
+        // ----------------------------------
+        let customTimerInterval = null;
+        let customSecondsLeft = 25 * 60;
+        let customEndTime = 0; // タイマー終了予定時刻（ミリ秒）
+        let customPaused = false; // 一時停止中かどうか
+        let customRemainingMs = 25 * 60 * 1000; // 残り時間（ミリ秒）
+        let currentCustomMode = 'work'; // 'work', 'break', 'lunch'
+
+        function onCustomSliderChange() {
+            const workVal = document.getElementById('custom-work-range').value;
+            const breakVal = document.getElementById('custom-break-range').value;
+            const lunchVal = document.getElementById('custom-lunch-range').value;
+
+            document.getElementById('custom-work-val').textContent = `${workVal}分`;
+            document.getElementById('custom-break-val').textContent = `${breakVal}分`;
+            document.getElementById('custom-lunch-val').textContent = `${lunchVal}分`;
+
+            if (!customTimerInterval && !customPaused) {
+                updateCustomTimerDisplay();
             }
         }
 
-        timeline.forEach((item, index) => {
-            const tr = document.createElement('tr');
-            
-            let rowClass = 'work';
-            let badgeClass = 'badge-work';
-
-            if (item.isMeal) {
-                rowClass = 'meal';
-                badgeClass = 'badge-meal';
-            } else if (!item.isWork) {
-                rowClass = 'break';
-                badgeClass = 'badge-break';
+        function updateCustomTimerDisplay() {
+            if (!customTimerInterval) {
+                let m = 25;
+                if (currentCustomMode === 'work') m = document.getElementById('custom-work-range').value;
+                else if (currentCustomMode === 'break') m = document.getElementById('custom-break-range').value;
+                else if (currentCustomMode === 'lunch') m = document.getElementById('custom-lunch-range').value;
+                customSecondsLeft = m * 60;
             }
 
-            tr.className = rowClass;
-
-            const isChecked = checkedStates[index] || false;
-            if (isChecked) tr.classList.add('completed');
-
-            tr.innerHTML = `
-                <td class="checkbox-col">
-                    <input type="checkbox" class="row-check" ${isChecked ? 'checked' : ''} onchange="toggleComplete(this)">
-                </td>
-                <td>第${item.cycle}セット</td>
-                <td><span class="badge ${badgeClass}">${item.type}</span></td>
-                <td>${item.start} ～ ${item.end}</td>
-                <td>
-                    <span><input type="number" class="table-input" value="${item.duration}" min="1" max="180" 
-                           onchange="onDurationChange(${item.durationIndex}, this)"> 分</span>
-                </td>
-            `;
-            tbody.appendChild(tr);
-        });
-    }
-
-    // ----------------------------------
-    // 独立動作の自由タイマー機能
-    // ----------------------------------
-    let customTimerInterval = null;
-    let customSecondsLeft = 25 * 60;
-    let customEndTime = 0; // タイマー終了予定時刻（ミリ秒）
-    let customPaused = false; // 一時停止中かどうか
-    let customRemainingMs = 25 * 60 * 1000; // 残り時間（ミリ秒）
-    let currentCustomMode = 'work'; // 'work', 'break', 'lunch'
-
-    function onCustomSliderChange() {
-        const workVal = document.getElementById('custom-work-range').value;
-        const breakVal = document.getElementById('custom-break-range').value;
-        const lunchVal = document.getElementById('custom-lunch-range').value;
-
-        document.getElementById('custom-work-val').textContent = `${workVal}分`;
-        document.getElementById('custom-break-val').textContent = `${breakVal}分`;
-        document.getElementById('custom-lunch-val').textContent = `${lunchVal}分`;
-
-        if (!customTimerInterval && !customPaused) {
-            updateCustomTimerDisplay();
-        }
-    }
-
-    function updateCustomTimerDisplay() {
-        if (!customTimerInterval) {
-            let m = 25;
-            if (currentCustomMode === 'work') m = document.getElementById('custom-work-range').value;
-            else if (currentCustomMode === 'break') m = document.getElementById('custom-break-range').value;
-            else if (currentCustomMode === 'lunch') m = document.getElementById('custom-lunch-range').value;
-            customSecondsLeft = m * 60;
+            const mins = String(Math.floor(customSecondsLeft / 60)).padStart(2, '0');
+            const secs = String(customSecondsLeft % 60).padStart(2, '0');
+            document.getElementById('custom-timer-clock').textContent = `mins:{secs}`;
         }
 
-        const mins = String(Math.floor(customSecondsLeft / 60)).padStart(2, '0');
-        const secs = String(customSecondsLeft % 60).padStart(2, '0');
-        document.getElementById('custom-timer-clock').textContent = `${mins}:${secs}`;
-    }
-
-    function setPausedState(paused) {
-        customPaused = paused;
-        const noteEl = document.getElementById('timer-paused-note');
-        if (paused) noteEl.textContent = '一時停止中';
-        noteEl.classList.toggle('show', paused);
-        document.getElementById('timer-pause-btn').textContent = paused ? '再開' : '一時停止';
-    }
-
-    // タイマー上の小さな表示
-    function showTimerNote(text) {
-        const noteEl = document.getElementById('timer-paused-note');
-        noteEl.textContent = text;
-        noteEl.classList.add('show');
-    }
-
-    function startCustomTimer(mode) {
-        if (customLoopTimeout) {
-            clearTimeout(customLoopTimeout);
-            customLoopTimeout = null;
-        }
-        unlockAudio();
-        setPausedState(false);
-        if (mode) {
-            currentCustomMode = mode;
-            let m = 25;
-            if (mode === 'work') {
-                m = document.getElementById('custom-work-range').value;
-                document.getElementById('timer-mode-badge').textContent = '勉強タイマー';
-            } else if (mode === 'break') {
-                m = document.getElementById('custom-break-range').value;
-                document.getElementById('timer-mode-badge').textContent = '休憩タイマー';
-            } else if (mode === 'lunch') {
-                m = document.getElementById('custom-lunch-range').value;
-                document.getElementById('timer-mode-badge').textContent = 'ご飯タイマー';
-            }
-            customSecondsLeft = m * 60;
+        function setPausedState(paused) {
+            customPaused = paused;
+            const noteEl = document.getElementById('timer-paused-note');
+            if (paused) noteEl.textContent = '一時停止中';
+            noteEl.classList.toggle('show', paused);
+            document.getElementById('timer-pause-btn').textContent = paused ? '再開' : '一時停止';
         }
 
-        if (customTimerInterval) clearInterval(customTimerInterval);
+        // タイマー上の小さな表示
+        function showTimerNote(text) {
+            const noteEl = document.getElementById('timer-paused-note');
+            noteEl.textContent = text;
+            noteEl.classList.add('show');
+        }
 
-        if (mode) customRemainingMs = customSecondsLeft * 1000;
-        customEndTime = Date.now() + customRemainingMs;
-        customTimerInterval = setInterval(tickCustomTimer, 250);
-        updateCustomTimerDisplay();
-    }
-
-    function tickCustomTimer() {
-        if (!customTimerInterval) return;
-
-        const remaining = Math.max(0, Math.ceil((customEndTime - Date.now()) / 1000));
-        customSecondsLeft = remaining;
-        updateCustomTimerDisplay();
-
-        if (remaining > 0) return;
-
-        clearInterval(customTimerInterval);
-        customTimerInterval = null;
-
-        onCustomTimerFinished();
-    }
-
-    function onCustomTimerFinished() {
-        const finishedMode = currentCustomMode;
-        playTimerSound(finishedMode);
-        showFinishNotification(finishedMode);
-        showTimerNote(`${MODE_LABELS[finishedMode]}タイマー終了`);
-
-        const autoWorkToBreak = document.getElementById('custom-auto-work-to-break').checked;
-        const autoBreakToWork = document.getElementById('custom-auto-break-to-work').checked;
-        if ((finishedMode === 'work' && autoWorkToBreak) || (finishedMode === 'break' && autoBreakToWork)) {
-            const nextMode = finishedMode === 'work' ? 'break' : 'work';
-            customLoopTimeout = setTimeout(() => {
+        function startCustomTimer(mode) {
+            if (customLoopTimeout) {
+                clearTimeout(customLoopTimeout);
                 customLoopTimeout = null;
-                startCustomTimer(nextMode);
-            }, 1000);
-        }
-    }
+            }
+            unlockAudio();
+            setPausedState(false);
+            if (mode) {
+                currentCustomMode = mode;
+                let m = 25;
+                if (mode === 'work') {
+                    m = document.getElementById('custom-work-range').value;
+                    document.getElementById('timer-mode-badge').textContent = '勉強タイマー';
+                } else if (mode === 'break') {
+                    m = document.getElementById('custom-break-range').value;
+                    document.getElementById('timer-mode-badge').textContent = '休憩タイマー';
+                } else if (mode === 'lunch') {
+                    m = document.getElementById('custom-lunch-range').value;
+                    document.getElementById('timer-mode-badge').textContent = 'ご飯タイマー';
+                }
+                customSecondsLeft = m * 60;
+            }
 
-    function togglePauseCustomTimer() {
-        if (customPaused) {
-            startCustomTimer();
-        } else if (customTimerInterval) {
-            pauseCustomTimer();
-            setPausedState(true);
-        }
-    }
+            if (customTimerInterval) clearInterval(customTimerInterval);
 
-    function pauseCustomTimer() {
-        if (customTimerInterval) {
-            customRemainingMs = Math.max(0, customEndTime - Date.now());
-            customSecondsLeft = Math.ceil(customRemainingMs / 1000);
+            if (mode) customRemainingMs = customSecondsLeft * 1000;
+            customEndTime = Date.now() + customRemainingMs;
+            customTimerInterval = setInterval(tickCustomTimer, 250);
             updateCustomTimerDisplay();
+        }
+
+        function tickCustomTimer() {
+            if (!customTimerInterval) return;
+
+            const remaining = Math.max(0, Math.ceil((customEndTime - Date.now()) / 1000));
+            customSecondsLeft = remaining;
+            updateCustomTimerDisplay();
+
+            if (remaining > 0) return;
+
             clearInterval(customTimerInterval);
             customTimerInterval = null;
+
+            onCustomTimerFinished();
         }
-    }
 
-    document.addEventListener('visibilitychange', () => {
-        if (!document.hidden) tickCustomTimer();
-    });
+        function onCustomTimerFinished() {
+            const finishedMode = currentCustomMode;
+            playTimerSound(finishedMode);
+            showFinishNotification(finishedMode);
+            showTimerNote(`${MODE_LABELS[finishedMode]}タイマー終了`);
 
-    function resetCustomTimer() {
-        if (customLoopTimeout) {
-            clearTimeout(customLoopTimeout);
-            customLoopTimeout = null;
+            const autoWorkToBreak = document.getElementById('custom-auto-work-to-break').checked;
+            const autoBreakToWork = document.getElementById('custom-auto-break-to-work').checked;
+            if ((finishedMode === 'work' && autoWorkToBreak) || (finishedMode === 'break' && autoBreakToWork)) {
+                const nextMode = finishedMode === 'work' ? 'break' : 'work';
+                customLoopTimeout = setTimeout(() => {
+                    customLoopTimeout = null;
+                    startCustomTimer(nextMode);
+                }, 1000);
+            }
         }
-        pauseCustomTimer();
-        setPausedState(false);
-        onCustomSliderChange();
-    }
 
-    // 全画面表示切替（PC・スマホ両対応）
-    function toggleFullscreen(elementId, btnId) {
-        const targetEl = document.getElementById(elementId);
-        const btn = document.getElementById(btnId);
-
-        if (!targetEl.classList.contains('fullscreen-mode')) {
-            targetEl.classList.add('fullscreen-mode');
-            btn.textContent = '縮小表示';
-        } else {
-            targetEl.classList.remove('fullscreen-mode');
-            btn.textContent = '全画面表示';
+        function togglePauseCustomTimer() {
+            if (customPaused) {
+                startCustomTimer();
+            } else if (customTimerInterval) {
+                pauseCustomTimer();
+                setPausedState(true);
+            }
         }
-    }
 
-    // ----------------------------------
-    // 時刻ピッカーの「リセット」対策
-    // ----------------------------------
-    const TIME_INPUT_DEFAULTS = { startTime: '09:00', endTime: '12:00' };
-    const timeOpenValues = {};
-
-    function restoreTimeIfReset(id) {
-        const el = document.getElementById(id);
-        if (el.value === '' && timeOpenValues[id]) {
-            el.value = timeOpenValues[id];
-            validateInputs();
+        function pauseCustomTimer() {
+            if (customTimerInterval) {
+                customRemainingMs = Math.max(0, customEndTime - Date.now());
+                customSecondsLeft = Math.ceil(customRemainingMs / 1000);
+                updateCustomTimerDisplay();
+                clearInterval(customTimerInterval);
+                customTimerInterval = null;
+            }
         }
-    }
 
-    function initTimeInputs() {
-        Object.keys(TIME_INPUT_DEFAULTS).forEach(id => {
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden) tickCustomTimer();
+        });
+
+        function resetCustomTimer() {
+            if (customLoopTimeout) {
+                clearTimeout(customLoopTimeout);
+                customLoopTimeout = null;
+            }
+            pauseCustomTimer();
+            setPausedState(false);
+            onCustomSliderChange();
+        }
+
+        // 全画面表示切替（PC・スマホ両対応）
+        function toggleFullscreen(elementId, btnId) {
+            const targetEl = document.getElementById(elementId);
+            const btn = document.getElementById(btnId);
+
+            if (!targetEl.classList.contains('fullscreen-mode')) {
+                targetEl.classList.add('fullscreen-mode');
+                btn.textContent = '縮小表示';
+            } else {
+                targetEl.classList.remove('fullscreen-mode');
+                btn.textContent = '全画面表示';
+            }
+        }
+
+        // ----------------------------------
+        // 時刻ピッカーの「リセット」対策
+        // ----------------------------------
+        const TIME_INPUT_DEFAULTS = { startTime: '09:00', endTime: '12:00' };
+        const timeOpenValues = {};
+
+        function restoreTimeIfReset(id) {
             const el = document.getElementById(id);
-            if (!el.value) el.value = TIME_INPUT_DEFAULTS[id];
-            timeOpenValues[id] = el.value;
+            if (el.value === '' && timeOpenValues[id]) {
+                el.value = timeOpenValues[id];
+                validateInputs();
+            }
+        }
 
-            const rememberOpenValue = () => { if (el.value) timeOpenValues[id] = el.value; };
-            el.addEventListener('focus', rememberOpenValue);
-            el.addEventListener('pointerdown', rememberOpenValue);
+        function initTimeInputs() {
+            Object.keys(TIME_INPUT_DEFAULTS).forEach(id => {
+                const el = document.getElementById(id);
+                if (!el.value) el.value = TIME_INPUT_DEFAULTS[id];
+                timeOpenValues[id] = el.value;
 
-            ['input', 'change', 'blur'].forEach(evt => {
-                el.addEventListener(evt, () => restoreTimeIfReset(id));
+                const rememberOpenValue = () => { if (el.value) timeOpenValues[id] = el.value; };
+                el.addEventListener('focus', rememberOpenValue);
+                el.addEventListener('pointerdown', rememberOpenValue);
+
+                ['input', 'change', 'blur'].forEach(evt => {
+                    el.addEventListener(evt, () => restoreTimeIfReset(id));
+                });
             });
-        });
 
-        setInterval(() => {
-            Object.keys(TIME_INPUT_DEFAULTS).forEach(restoreTimeIfReset);
-        }, 300);
-    }
+            setInterval(() => {
+                Object.keys(TIME_INPUT_DEFAULTS).forEach(restoreTimeIfReset);
+            }, 300);
+        }
 
-    // ----------------------------------
-    // 終了時のサウンド・通知
-    // ----------------------------------
-    const MODE_LABELS = { work: '勉強', break: '休憩', lunch: 'ご飯' };
-    let customLoopTimeout = null;
-    let audioCtx = null;
+        // ----------------------------------
+        // 終了時のサウンド・通知
+        // ----------------------------------
+        const MODE_LABELS = { work: '勉強', break: '休憩', lunch: 'ご飯' };
+        let customLoopTimeout = null;
+        let audioCtx = null;
 
-    const SOUND_LIBRARY = {
-        pirorin: { name: 'ピロリン♪', notes: [
-            { f: 880, t: 0, d: 0.25 },
-            { f: 1318.5, t: 0.16, d: 0.6 }
-        ]},
-        chime: { name: 'チャイム', notes: [
-            { f: 523.25, t: 0, d: 0.7 },
-            { f: 659.25, t: 0.3, d: 0.7 },
-            { f: 783.99, t: 0.6, d: 1.2 }
-        ]},
-        bell: { name: 'ベル', notes: [
-            { f: 880, t: 0, d: 1.8, partials: [[1, 1], [2.76, 0.4], [5.4, 0.2]] },
-            { f: 880, t: 1.0, d: 1.8, partials: [[1, 1], [2.76, 0.4], [5.4, 0.2]] }
-        ]},
-        wood: { name: '木琴', notes: [
-            { f: 784, t: 0, d: 0.3, type: 'triangle' },
-            { f: 988, t: 0.14, d: 0.3, type: 'triangle' },
-            { f: 1175, t: 0.28, d: 0.5, type: 'triangle' }
-        ]},
-        soft: { name: 'やさしい音', notes: [
-            { f: 523.25, t: 0, d: 1.4, g: 0.8 },
-            { f: 659.25, t: 0.5, d: 1.6, g: 0.8 }
-        ]},
-        alarm: { name: 'アラーム', notes: [
-            { f: 988, t: 0, d: 0.16, type: 'square', g: 0.5 },
-            { f: 988, t: 0.26, d: 0.16, type: 'square', g: 0.5 },
-            { f: 988, t: 0.52, d: 0.16, type: 'square', g: 0.5 },
-            { f: 988, t: 0.78, d: 0.16, type: 'square', g: 0.5 }
-        ]},
-        none: { name: '音なし', notes: [] }
-    };
+        const SOUND_LIBRARY = {
+            pirorin: {
+                name: 'ピロリン♪', notes: [
+                    { f: 880, t: 0, d: 0.25 },
+                    { f: 1318.5, t: 0.16, d: 0.6 }
+                ]
+            },
+            chime: {
+                name: 'チャイム', notes: [
+                    { f: 523.25, t: 0, d: 0.7 },
+                    { f: 659.25, t: 0.3, d: 0.7 },
+                    { f: 783.99, t: 0.6, d: 1.2 }
+                ]
+            },
+            bell: {
+                name: 'ベル', notes: [
+                    { f: 880, t: 0, d: 1.8, partials: [[1, 1], [2.76, 0.4], [5.4, 0.2]] },
+                    { f: 880, t: 1.0, d: 1.8, partials: [[1, 1], [2.76, 0.4], [5.4, 0.2]] }
+                ]
+            },
+            wood: {
+                name: '木琴', notes: [
+                    { f: 784, t: 0, d: 0.3, type: 'triangle' },
+                    { f: 988, t: 0.14, d: 0.3, type: 'triangle' },
+                    { f: 1175, t: 0.28, d: 0.5, type: 'triangle' }
+                ]
+            },
+            soft: {
+                name: 'やさしい音', notes: [
+                    { f: 523.25, t: 0, d: 1.4, g: 0.8 },
+                    { f: 659.25, t: 0.5, d: 1.6, g: 0.8 }
+                ]
+            },
+            alarm: {
+                name: 'アラーム', notes: [
+                    { f: 988, t: 0, d: 0.16, type: 'square', g: 0.5 },
+                    { f: 988, t: 0.26, d: 0.16, type: 'square', g: 0.5 },
+                    { f: 988, t: 0.52, d: 0.16, type: 'square', g: 0.5 },
+                    { f: 988, t: 0.78, d: 0.16, type: 'square', g: 0.5 }
+                ]
+            },
+            none: { name: '音なし', notes: [] }
+        };
 
-    const SOUND_DEFAULTS = { work: 'pirorin', break: 'chime', lunch: 'bell' };
-    const SOUND_SETTINGS_KEY = 'pomodoro.soundSettings';
+        const SOUND_DEFAULTS = { work: 'pirorin', break: 'chime', lunch: 'bell' };
+        const SOUND_SETTINGS_KEY = 'pomodoro.soundSettings';
 
-    function getAudioContext() {
-        if (!audioCtx) {
+        function getAudioContext() {
+            if (!audioCtx) {
+                try {
+                    const Ctx = window.AudioContext || window.webkitAudioContext;
+                    if (Ctx) audioCtx = new Ctx();
+                } catch (e) {
+                    audioCtx = null;
+                }
+            }
+            return audioCtx;
+        }
+
+        function unlockAudio() {
+            const ctx = getAudioContext();
+            if (!ctx) return;
             try {
-                const Ctx = window.AudioContext || window.webkitAudioContext;
-                if (Ctx) audioCtx = new Ctx();
+                if (ctx.state === 'suspended') ctx.resume();
+                const buf = ctx.createBuffer(1, 1, 22050);
+                const src = ctx.createBufferSource();
+                src.buffer = buf;
+                src.connect(ctx.destination);
+                src.start(0);
             } catch (e) {
-                audioCtx = null;
+                // 失敗しても動作は続ける
             }
         }
-        return audioCtx;
-    }
 
-    function unlockAudio() {
-        const ctx = getAudioContext();
-        if (!ctx) return;
-        try {
-            if (ctx.state === 'suspended') ctx.resume();
-            const buf = ctx.createBuffer(1, 1, 22050);
-            const src = ctx.createBufferSource();
-            src.buffer = buf;
-            src.connect(ctx.destination);
-            src.start(0);
-        } catch (e) {
-            // 失敗しても動作は続ける
-        }
-    }
+        function playSoundById(soundId) {
+            const def = SOUND_LIBRARY[soundId];
+            if (!def || def.notes.length === 0) return;
+            const ctx = getAudioContext();
+            if (!ctx) return;
 
-    function playSoundById(soundId) {
-        const def = SOUND_LIBRARY[soundId];
-        if (!def || def.notes.length === 0) return;
-        const ctx = getAudioContext();
-        if (!ctx) return;
+            try {
+                if (ctx.state === 'suspended') ctx.resume();
 
-        try {
-            if (ctx.state === 'suspended') ctx.resume();
+                const volume = (parseInt(document.getElementById('sound-volume').value, 10) || 0) / 100;
+                if (volume <= 0) return;
 
-            const volume = (parseInt(document.getElementById('sound-volume').value, 10) || 0) / 100;
-            if (volume <= 0) return;
+                const master = ctx.createGain();
+                master.gain.value = volume;
+                master.connect(ctx.destination);
 
-            const master = ctx.createGain();
-            master.gain.value = volume;
-            master.connect(ctx.destination);
+                const base = ctx.currentTime + 0.05;
+                def.notes.forEach(n => {
+                    (n.partials || [[1, 1]]).forEach(([ratio, partialGain]) => {
+                        const osc = ctx.createOscillator();
+                        const gain = ctx.createGain();
+                        osc.type = n.type || 'sine';
+                        osc.frequency.value = n.f * ratio;
 
-            const base = ctx.currentTime + 0.05;
-            def.notes.forEach(n => {
-                (n.partials || [[1, 1]]).forEach(([ratio, partialGain]) => {
-                    const osc = ctx.createOscillator();
-                    const gain = ctx.createGain();
-                    osc.type = n.type || 'sine';
-                    osc.frequency.value = n.f * ratio;
+                        const peak = 0.3 * (n.g === undefined ? 1 : n.g) * partialGain;
+                        const t0 = base + n.t;
+                        gain.gain.setValueAtTime(0.0001, t0);
+                        gain.gain.exponentialRampToValueAtTime(peak, t0 + 0.01);
+                        gain.gain.exponentialRampToValueAtTime(0.0001, t0 + n.d);
 
-                    const peak = 0.3 * (n.g === undefined ? 1 : n.g) * partialGain;
-                    const t0 = base + n.t;
-                    gain.gain.setValueAtTime(0.0001, t0);
-                    gain.gain.exponentialRampToValueAtTime(peak, t0 + 0.01);
-                    gain.gain.exponentialRampToValueAtTime(0.0001, t0 + n.d);
-
-                    osc.connect(gain);
-                    gain.connect(master);
-                    osc.start(t0);
-                    osc.stop(t0 + n.d + 0.05);
+                        osc.connect(gain);
+                        gain.connect(master);
+                        osc.start(t0);
+                        osc.stop(t0 + n.d + 0.05);
+                    });
                 });
-            });
-        } catch (e) {
-            // 音が出せない環境では何もしない
-        }
-    }
-
-    function playTimerSound(mode) {
-        const select = document.getElementById(`sound-${mode}`);
-        if (select) playSoundById(select.value);
-    }
-
-    function previewSound(mode) {
-        unlockAudio();
-        playTimerSound(mode);
-    }
-
-    function showFinishNotification(mode) {
-        const checkbox = document.getElementById('notify-enable');
-        if (!checkbox.checked || !('Notification' in window)) return;
-        if (Notification.permission !== 'granted') return;
-        try {
-            new Notification('ポモドーロタイマー', { body: `${MODE_LABELS[mode]}の時間が終わりました` });
-        } catch (e) {
-            // 通知を出せない環境では音のみ
-        }
-    }
-
-    function saveSoundSettings() {
-        try {
-            const data = {
-                work: document.getElementById('sound-work').value,
-                break: document.getElementById('sound-break').value,
-                lunch: document.getElementById('sound-lunch').value,
-                volume: document.getElementById('sound-volume').value,
-                notify: document.getElementById('notify-enable').checked
-            };
-            localStorage.setItem(SOUND_SETTINGS_KEY, JSON.stringify(data));
-        } catch (e) {
-            // 保存できない環境では何もしない
-        }
-    }
-
-    function onSoundSettingChange() {
-        document.getElementById('sound-volume-val').textContent =
-            `${document.getElementById('sound-volume').value}%`;
-        saveSoundSettings();
-    }
-
-    function onNotifyToggle() {
-        const checkbox = document.getElementById('notify-enable');
-        const noteEl = document.getElementById('notify-note');
-        noteEl.textContent = '';
-
-        if (checkbox.checked) {
-            if (!('Notification' in window)) {
-                checkbox.checked = false;
-            } else if (Notification.permission === 'denied') {
-                checkbox.checked = false;
-                noteEl.textContent = 'ブラウザの設定で通知が許可されていません。';
-            } else if (Notification.permission !== 'granted') {
-                Notification.requestPermission().then(result => {
-                    if (result !== 'granted') {
-                        checkbox.checked = false;
-                        noteEl.textContent = '通知が許可されませんでした。';
-                    }
-                    saveSoundSettings();
-                });
+            } catch (e) {
+                // 音が出せない環境では何もしない
             }
         }
-        saveSoundSettings();
-    }
 
-    function initSoundSettings() {
-        let saved = {};
-        try {
-            saved = JSON.parse(localStorage.getItem(SOUND_SETTINGS_KEY)) || {};
-        } catch (e) {
-            saved = {};
-        }
-
-        ['work', 'break', 'lunch'].forEach(mode => {
+        function playTimerSound(mode) {
             const select = document.getElementById(`sound-${mode}`);
-            Object.keys(SOUND_LIBRARY).forEach(id => {
-                const opt = document.createElement('option');
-                opt.value = id;
-                opt.textContent = SOUND_LIBRARY[id].name;
-                select.appendChild(opt);
-            });
-            const wanted = saved[mode];
-            select.value = SOUND_LIBRARY[wanted] ? wanted : SOUND_DEFAULTS[mode];
-        });
-
-        if (saved.volume !== undefined) document.getElementById('sound-volume').value = saved.volume;
-        document.getElementById('sound-volume-val').textContent =
-            `${document.getElementById('sound-volume').value}%`;
-
-        const notifyCheckbox = document.getElementById('notify-enable');
-        const noteEl = document.getElementById('notify-note');
-        if (!('Notification' in window)) {
-            notifyCheckbox.disabled = true;
-            noteEl.textContent = 'この端末のブラウザでは通知を出せません（音のみ鳴ります）。';
-        } else {
-            notifyCheckbox.checked = !!saved.notify && Notification.permission === 'granted';
+            if (select) playSoundById(select.value);
         }
-    }
 
-    // 初期化処理
-    window.onload = () => {
-        initSoundSettings();
-        initTimeInputs();
-        validateInputs();
-        updateClock();
-        setInterval(updateClock, 1000);
-        fetchExternalTime();
-        setInterval(fetchExternalTime, 60000);
-        onCustomSliderChange();
-    };
-</script>
+        function previewSound(mode) {
+            unlockAudio();
+            playTimerSound(mode);
+        }
+
+        function showFinishNotification(mode) {
+            const checkbox = document.getElementById('notify-enable');
+            if (!checkbox.checked || !('Notification' in window)) return;
+            if (Notification.permission !== 'granted') return;
+            try {
+                new Notification('ポモドーロタイマー', { body: `${MODE_LABELS[mode]}の時間が終わりました` });
+            } catch (e) {
+                // 通知を出せない環境では音のみ
+            }
+        }
+
+        function saveSoundSettings() {
+            try {
+                const data = {
+                    work: document.getElementById('sound-work').value,
+                    break: document.getElementById('sound-break').value,
+                    lunch: document.getElementById('sound-lunch').value,
+                    volume: document.getElementById('sound-volume').value,
+                    notify: document.getElementById('notify-enable').checked
+                };
+                localStorage.setItem(SOUND_SETTINGS_KEY, JSON.stringify(data));
+            } catch (e) {
+                // 保存できない環境では何もしない
+            }
+        }
+
+        function onSoundSettingChange() {
+            document.getElementById('sound-volume-val').textContent =
+                `${document.getElementById('sound-volume').value}%`;
+            saveSoundSettings();
+        }
+
+        function onNotifyToggle() {
+            const checkbox = document.getElementById('notify-enable');
+            const noteEl = document.getElementById('notify-note');
+            noteEl.textContent = '';
+
+            if (checkbox.checked) {
+                if (!('Notification' in window)) {
+                    checkbox.checked = false;
+                } else if (Notification.permission === 'denied') {
+                    checkbox.checked = false;
+                    noteEl.textContent = 'ブラウザの設定で通知が許可されていません。';
+                } else if (Notification.permission !== 'granted') {
+                    Notification.requestPermission().then(result => {
+                        if (result !== 'granted') {
+                            checkbox.checked = false;
+                            noteEl.textContent = '通知が許可されませんでした。';
+                        }
+                        saveSoundSettings();
+                    });
+                }
+            }
+            saveSoundSettings();
+        }
+
+        function initSoundSettings() {
+            let saved = {};
+            try {
+                saved = JSON.parse(localStorage.getItem(SOUND_SETTINGS_KEY)) || {};
+            } catch (e) {
+                saved = {};
+            }
+
+            ['work', 'break', 'lunch'].forEach(mode => {
+                const select = document.getElementById(`sound-${mode}`);
+                Object.keys(SOUND_LIBRARY).forEach(id => {
+                    const opt = document.createElement('option');
+                    opt.value = id;
+                    opt.textContent = SOUND_LIBRARY[id].name;
+                    select.appendChild(opt);
+                });
+                const wanted = saved[mode];
+                select.value = SOUND_LIBRARY[wanted] ? wanted : SOUND_DEFAULTS[mode];
+            });
+
+            if (saved.volume !== undefined) document.getElementById('sound-volume').value = saved.volume;
+            document.getElementById('sound-volume-val').textContent =
+                `${document.getElementById('sound-volume').value}%`;
+
+            const notifyCheckbox = document.getElementById('notify-enable');
+            const noteEl = document.getElementById('notify-note');
+            if (!('Notification' in window)) {
+                notifyCheckbox.disabled = true;
+                noteEl.textContent = 'この端末のブラウザでは通知を出せません（音のみ鳴ります）。';
+            } else {
+                notifyCheckbox.checked = !!saved.notify && Notification.permission === 'granted';
+            }
+        }
+
+        // 初期化処理
+        window.onload = () => {
+            initSoundSettings();
+            initTimeInputs();
+            validateInputs();
+            updateClock();
+            setInterval(updateClock, 1000);
+            fetchExternalTime();
+            setInterval(fetchExternalTime, 60000);
+            onCustomSliderChange();
+        };
+    </script>
 
 </body>
 </html>
+
+
 
